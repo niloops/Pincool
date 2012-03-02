@@ -25,3 +25,4 @@ doc/
 
 # Everything else
 .sass-cache
+/bundler_stubs/
