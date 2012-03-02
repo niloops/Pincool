@@ -16,13 +16,10 @@ group :assets do
   gem 'compass-rails'
 end
 
-group :development, :test do
+group :test do
   gem 'rspec-rails', '2.8.0'
   gem 'guard-rspec', '0.6.0'
   gem 'faker', '1.0.1'
-end
-
-group :test do
   gem 'capybara', '1.1.2'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.7.2'
