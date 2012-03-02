@@ -4,6 +4,7 @@ set :rvm_ruby_string, 'default'
 require 'bundler/capistrano'
 
 set :application, "Pincool"
+set :scm, "git"
 set :repository,  "git@github.com:Lilu/Pincool.git"
 set :user, "dev"
 set :ssh_options, {:forward_agent => true}
