@@ -6,6 +6,6 @@ describe "StaticPages" do
 
   describe "home" do
     before {visit root_path}
-    it {should have_selector 'h1', text: '品酷'}
+    it {should have_selector 'h1', text: 'Hello world'}
   end
 end
