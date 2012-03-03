@@ -1,0 +1,7 @@
+%h1 Demo-Upyun form upload
+= form_tag 'http://v0.api.upyun.com/pincool-photo', multipart: true
+= file_field_tag 'file'
+= hidden_field_tag 'policy', raw(@policy)
+= hidden_field_tag 'signature', raw(@signature)
+= submit_tag "Submit"
+= debug @policydoc.to_json
