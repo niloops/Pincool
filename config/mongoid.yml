@@ -6,12 +6,10 @@ test:
   host: localhost
   database: pincool_test
 
-# set these environment variables on your prod server
 production:
-  host: 
+  hosts: 
     - - localhost
       - 27017
     - - localhost
       - 27018
   database: pincool_production
-  
