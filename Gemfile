@@ -8,8 +8,11 @@ gem 'bson_ext'
 gem 'mongoid'
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'kaminari'
 gem 'jbuilder'
+gem 'kaminari'
+gem 'omniauth'
+gem 'omniauth-weibo'
+gem 'omniauth-douban'
 gem 'capistrano'
 
 group :assets do
