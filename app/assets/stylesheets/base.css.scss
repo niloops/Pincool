@@ -1,0 +1,9 @@
+@import "compass/css3";
+
+body, input, label, select, option, textarea, button, fieldset, legend {
+   font {
+      family: "Hiragino Sans GB", "Microsoft Yahei", arial, sans-serif;
+      size: 12px;
+   }
+   color: #333;
+}

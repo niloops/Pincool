@@ -1,7 +1,7 @@
 Pincool::Application.routes.draw do
   get "demos/upyun"
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#signup'
   match "/auth/:provider/callback", to: "demos#omniauth"
 
   # The priority is based upon order of creation:
