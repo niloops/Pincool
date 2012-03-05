@@ -2,6 +2,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 set :rvm_ruby_string, 'default'
 require 'bundler/capistrano'
+load 'deploy/assets'
 
 set :application, "Pincool"
 set :scm, "git"
