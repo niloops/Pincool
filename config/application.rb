@@ -61,5 +61,8 @@ module Pincool
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Precompile individual modernize_respond 
+    config.assets.precompile += ['modernizr_respond.js']
   end
 end
