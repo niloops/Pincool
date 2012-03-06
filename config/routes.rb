@@ -2,8 +2,13 @@ Pincool::Application.routes.draw do
   get "demos/upyun"
 
   root to: 'static_pages#signup'
-  match "/auth/:provider/callback", to: "demos#omniauth"
+  match "/auth/:provider/callback", to: "sessions#create"
+  match '/signout', to: 'sessions#destroy', via: :delete
+  
+  resources :users, only: [:show]
+  match "/home", to: "users#home"
 
+  resources :invited_users, only: [:new, :create, :index, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

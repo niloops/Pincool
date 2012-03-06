@@ -21,6 +21,14 @@ body#static_pages_signup {
          margin: 8px 3%;
       }
 
+      img.weibo_signin {
+         margin: 0;
+      }
+
+      a {
+         color: #f4f4f4;
+      }
+
       @media (min-width: 640px) {
          margin-bottom: 30px;
          line-height: 50px;

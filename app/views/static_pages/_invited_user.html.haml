@@ -1,0 +1,6 @@
+- if invited_user
+  - case invited_user.provider
+  - when 'weibo'
+    %a(href="/auth/weibo" title="微博帐号登录")
+      = image_tag "signup/weibo_signin_small.png", class: "weibo_signin"
+      = invited_user.name

@@ -1,0 +1,16 @@
+%nav
+  #logo
+    = link_to(root_path) do
+      = image_tag "logo.png", title: "返回主页", alt: "logo"
+  %ul#navigator
+    %li= link_to "我的主页", root_path
+    %li= link_to "我的品牌", '#'
+    %li= link_to "探索发现", '#'
+    %li= link_to "品控领域", '#'
+  #current_user
+    = link_to current_user do
+      = image_tag current_user.image_url, class: "people_thumb_small", 
+      title: current_user.name, alt: current_user.name
+      %strong= current_user.name
+    %ul
+      %li= link_to "退出", signout_path, method: :delete

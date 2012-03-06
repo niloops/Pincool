@@ -1,4 +1,4 @@
-!!! 
+!!!
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="zh-CN"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN"> <!--<![endif]-->
 %head
@@ -6,15 +6,20 @@
   %meta(name="author" content="lilu.life@gmail.com")
   %meta(name="description" content="品酷-不一样的在线品牌点评服务")
   %meta(name="viewport" content="width=device-width,initial-scale=1")
-  %meta(property="wb:webmaster" content="7b4481bdd397f2e0")  
+  %meta(property="wb:webmaster" content="7b4481bdd397f2e0")
   %title= full_title yield(:title)
   = stylesheet_link_tag "application"
   = javascript_include_tag "modernizr_respond"
   = csrf_meta_tags
-%body{id: [params[:controller], params[:action]]}
-  = yield
+%body{id: [params[:controller], params[:action]],
+class: ((signed_in?) ? "signed_in" : "sign_up")}
+  - if signed_in?
+    %header= render 'layouts/header'
+    %section= yield
+    %footer= render 'layouts/footer'
+  - else
+    = yield
   -# = debug(params) if Rails.env.development?
-  -# = debug(cookies) if Rails.env.development?
   = javascript_include_tag "application"
   = javascript_include_tag "proto_fluid.3.02" if Rails.env.development?
 </html>

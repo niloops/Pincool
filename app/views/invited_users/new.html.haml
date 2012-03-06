@@ -1,0 +1,11 @@
+%h1 新增邀请用户
+= form_for(@invited_user) do |f| 
+  .field
+    = f.label :provider, "来自平台"
+    = f.radio_button :provider, "weibo", checked: true
+    %span 微博
+  .field
+    = f.label :name, "用户名"
+    = f.text_field :name, size:20
+  .action  
+    = f.submit "提交"

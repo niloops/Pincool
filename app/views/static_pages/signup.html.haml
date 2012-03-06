@@ -1,6 +1,7 @@
 %header
-  = image_tag "logo.png"
-%aside 
+  = image_tag "signup/logo.png"
+  = render 'invited_user', invited_user: @invited_user
+%aside
   准备中...
 %section
   %p 感谢您的关注，品酷提供独立品牌点评服务：

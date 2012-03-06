@@ -1,9 +1,43 @@
-ul, li {
+ul, ol {
    margin: 0;
    padding: 0;
    list-style: none;
 }
 
-a {
-   text-decoration: none;
+button, input {
+   padding: 0;
+
+   &:active {
+      outline: none;
+   }
+}
+
+dl, dt, dd {
+   margin: 0;
+}
+
+input[type="search"] {
+   -webkit-appearance: none;
+}
+
+input:focus {
+   outline: none;
+   -webkit-appearance: none;
+}
+
+textarea {
+   padding: 0;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+:required {
+   outline: none;
+   box-shadow: none;
+}
+
+:visited {
+   outline: none;
 }

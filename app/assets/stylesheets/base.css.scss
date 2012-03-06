@@ -1,9 +1,241 @@
 @import "compass/css3";
 
+$site-width: 920px;
+
 body, input, label, select, option, textarea, button, fieldset, legend {
-   font {
+   font: {
       family: "Hiragino Sans GB", "Microsoft Yahei", arial, sans-serif;
       size: 12px;
    }
    color: #333;
 }
+
+a {
+   $link_color: #158d9f;
+   color: $link_color;
+   text-decoration: none;
+   
+   &:visited {
+      color: $link_color;
+      outline: none;
+   }
+}
+
+:-moz-placeholder {
+   color: #ccc;
+}
+
+::-webkit-input-placeholder {
+   color: #ccc;
+}
+
+body {
+   background: image-url("bg.gif")
+}
+
+.people_thumb_small {
+   width: 30px;
+   height: 30px;
+}
+
+.people_thumb_big {
+   width: 80px;
+   height: 80px;
+}
+
+.brand_thumb_small {
+   width: 40px;
+   height: 40px;
+}
+
+.brand_thumb_big {
+   width: 80px;
+   height: 80px;
+}
+
+button {
+   border: 1px solid #0099ff;
+   color: #fff;
+   @include background(linear-gradient(#66ccff, #0099ff));
+   @include border-radius(3px);
+
+   &:hover {
+      font-weight:bold;
+      @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.25), 0 0 3px #FFFFFF inset);
+   }
+
+   &:active {
+      padding-left: 2px;
+      @include box-shadow(0 1px 2px #AAAAAA inset);
+   }
+}
+
+.weibo {
+   display: inline-block;
+   text-indent: -1000em;
+   width: 20px;
+   height: 20px;
+   // Weibo icon as background
+}
+
+/* header */
+
+body.signed_in > header {
+   $header-text-color: #999;
+
+   position: fixed;
+   z-index: 100;
+   top: 0;
+   left: 0;
+   right: 0;
+   height: 50px;
+   @include background(linear-gradient(#fff, #f4f4f4));
+   @include box-shadow(0 1px 2px #ccc);
+
+   > nav {
+      margin: 0 auto;
+      width: $site-width+40px;
+      color: $header-text-color;
+
+      #logo {
+         float: left;
+         margin-top: 11px;
+         opacity: 1;
+         
+         img:hover{
+	    opacity: 0.6;
+         }
+      }
+
+      ul#navigator {
+         float: left;
+         width: 50%;
+         margin-left: 10%;
+
+         > li {
+            float: left;
+            width: 25%;
+
+            a {
+               display: inline-block;
+               width: 100%;
+               color: $header-text-color;
+               line-height: 51px;
+               text-align: center;
+
+               &:hover {
+                  color: white;
+                  @include background(linear-gradient(#999, #333));
+               }
+            }
+         }
+      }
+
+      #current_user {
+         float: right;
+         position: relative;
+         margin-right: -2px;
+         padding: 10px 15px 10px 20px;
+         width: 15%;
+         background: image-url("current_user_menu.png") no-repeat 90% center;
+
+         img {
+            vertical-align: middle;
+         }
+
+         strong {
+            color: $header-text-color;
+            margin: 0 2px 0 6px;
+            vertical-align: middle;
+         }
+
+         > ul {
+            position: absolute;
+            margin-top: 10px;
+            width: 100%;
+            left: -1000em;
+
+            li {
+               text-align: center;
+
+               a {
+                  display: inline-block;
+                  width: 99%;
+                  line-height: 40px;
+                  border: 1px solid #ccc;
+                  border-top: none;
+                  color: $header-text-color;
+                  @include background(linear-gradient(white, #f4f4f4));
+
+                  &:hover {
+                     color: white;
+                     border-color: #999;
+                     background: #999;
+                  }
+               }
+            }
+         }
+
+         &:hover {
+            @include background(image-url("current_user_menu_open.png") no-repeat 90% center,
+               linear-gradient(#999, #333));
+            
+            strong {
+               color: white;
+            }
+
+            > ul {
+               left: 0;
+            }
+         }
+      }
+   }
+}
+
+.no-boxshadow body > header.signed_in {
+   border-bottom: 1px solid #999;
+}
+
+/* section */
+
+body.signed_in > section {
+   position: relative;
+   width: $site-width;
+   margin: 70px auto 0 auto;
+   padding: 20px;
+   background-color: white;
+   border: 1px solid #ccc;
+   @include box-shadow(0 1px 3px #999);
+
+   > header {
+      position: relative;
+      
+      > h1 {
+         display: inline-block;
+         margin: 0;
+         font-size: 1.2em;
+         color: #999;
+      }
+
+      > nav {
+         display: inline-block;
+         padding-left: 5px;
+
+         a {
+            margin-right: 5px;
+
+            &:before {
+               content: "·";
+               padding-right: 8px;
+               font-weight: normal;
+            }
+         }
+
+         .current {
+            color: #999;
+            font-weight:bold;
+         }
+      }
+   }
+}
+
