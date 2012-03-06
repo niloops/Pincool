@@ -21,4 +21,4 @@ Pincool.slideshows = (->
       _show()
 )()
 
-$(window).load(Pincool.slideshows) if $('body').attr('id') == 'static_pages_signup'
+$(setTimeout(Pincool.slideshows, 1000)) if $('body').attr('id') == 'static_pages_signup'
