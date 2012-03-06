@@ -1,7 +1,7 @@
 %tr
   %td= invited_user.provider
   %td= invited_user.name
-  %td= root_url + "?provider=#{invited_user.provider}&name=#{invited_user.name}"
+  %td= root_url + "signin/#{invited_user.provider}/#{invited_user.name}"
   %td 
     - if invited_user.registered_user
       = link_to "用户主页", invited_user.registered_user

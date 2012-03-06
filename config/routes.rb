@@ -2,6 +2,8 @@ Pincool::Application.routes.draw do
   get "demos/upyun"
 
   root to: 'static_pages#signup'
+  match "/signin/:provider/:name", to: 'static_pages#signup'
+  
   match "/auth/:provider/callback", to: "sessions#create"
   match '/signout', to: 'sessions#destroy', via: :delete
   
