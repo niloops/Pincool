@@ -13,8 +13,4 @@ class DemosController < ApplicationController
     @signature = Digest::MD5.hexdigest("#{@policy}&#{secret_key}")
   end
 
-  def omniauth
-    render xml: request.env['omniauth.auth']
-  end
-  
 end

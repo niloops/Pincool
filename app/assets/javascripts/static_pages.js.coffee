@@ -20,6 +20,3 @@ Pincool.slideshows = (->
     else
       _show()
 )()
-
-if $('body').attr('id') == 'static_pages_signup'
-  $($('figure img:first').load(Pincool.slideshows))
