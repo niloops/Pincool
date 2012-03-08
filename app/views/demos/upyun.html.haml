@@ -1,9 +1,17 @@
 %h1 Demo-Upyun form upload
-= form_tag 'http://v0.api.upyun.com/pincool-photo', multipart: true, remote: true
+#upyun_result
+#progress
+= form_tag 'http://v0.api.upyun.com/pincool-photo',
+id: "upyun-form", multipart: true, remote: true, 'data-type' => 'json'
 = file_field_tag 'file'
 = hidden_field_tag 'policy', @policy
 = hidden_field_tag 'signature', @signature
 = submit_tag "Submit"
-#upyun_result
 -# {"code":200,"message":"ok","url":"\/demo\/95068246d9d723cfe6ff9c4d82239124.jpg","time":1331110704,"sign":"a541c4e13ecf879157075f3763c2f438"}
 -# {"code":403,"message":"\u975e\u6cd5\u8bf7\u6c42, \u4e0a\u4f20\u7684\u6587\u4ef6\u7c7b\u578b\u9519\u8bef\uff08\u4ec5\u5141\u8bb8\uff1ajpg,jpeg,gif,png\uff09","url":"\/demo\/8779c14c911dfb9b67f8ea215a2ab6ac.","time":1331110761,"sign":"374526d8eda77bd057f5c7b24403021a"}
+= javascript_include_tag "jquery"
+= javascript_include_tag "jquery.ui.widget"
+= javascript_include_tag "jquery.iframe-transport"
+= javascript_include_tag "jquery.fileupload"
+= javascript_include_tag "demo.upyun"
+= debug @policydoc
