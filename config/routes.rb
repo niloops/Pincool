@@ -5,12 +5,15 @@ Pincool::Application.routes.draw do
 
   root to: 'static_pages#signup'
   match "/signin/:provider/:name", to: 'static_pages#signup'
+  get "/upyun_redirect", to: 'static_pages#upyun_redirect'
   
   match "/auth/:provider/callback", to: "sessions#create"
   match '/signout', to: 'sessions#destroy', via: :delete
   
   resources :users, only: [:show]
   match "/home", to: "users#home"
+
+  resources :brands
 
   resources :invited_users, only: [:new, :create, :index, :destroy]
   # The priority is based upon order of creation:

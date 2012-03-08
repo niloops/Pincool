@@ -1,6 +1,13 @@
 @import "compass/css3";
 
 $site-width: 920px;
+$site-border-color: #ccc;
+
+@mixin inline-edit-input {
+   border: none;
+   outline: none;
+   background-color: #ffc;
+}
 
 body, input, label, select, option, textarea, button, fieldset, legend {
    font: {
@@ -43,15 +50,15 @@ body {
    height: 80px;
 }
 
-.brand_thumb_small {
-   width: 40px;
-   height: 40px;
-}
+/* .brand_thumb_small { */
+/*    width: 40px; */
+/*    height: 40px; */
+/* } */
 
-.brand_thumb_big {
-   width: 80px;
-   height: 80px;
-}
+/* .brand_thumb_big { */
+/*    width: 80px; */
+/*    height: 80px; */
+/* } */
 
 button {
    border: 1px solid #0099ff;
@@ -209,6 +216,9 @@ body.signed_in > section {
 
    > header {
       position: relative;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $site-border-color;
+      padding-bottom: 20px;
       
       > h1 {
          display: inline-block;

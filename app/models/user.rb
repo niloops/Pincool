@@ -5,6 +5,7 @@ class User
   field :admin, type: Boolean, default: false
   
   embeds_many :authentications
+  has_many :brands
   index ["authentications.provider", "authentications.uid"]
 
   before_create :create_token
