@@ -9,7 +9,7 @@
   %meta(property="wb:webmaster" content="7b4481bdd397f2e0")
   %title= full_title yield(:title)
   = stylesheet_link_tag "application"
-  = javascript_include_tag "modernizr_respond"
+  = javascript_include_tag "application"
   = csrf_meta_tags
 %body{id: params[:controller], class: ((signed_in?) ? "signed_in" : "sign_up")}
   - if signed_in?
@@ -18,9 +18,8 @@
     %footer= render 'layouts/footer'
   - else
     = yield
-  -# = debug(params) if Rails.env.development?
-  = javascript_include_tag "application"
-  -# = javascript_include_tag "proto_fluid.3.02" if Rails.env.development?
   = yield :script
   = javascript_include_tag "ga"
+  -# = javascript_include_tag "proto_fluid.3.02" if Rails.env.development?
+  -# = debug(params) if Rails.env.development?
 </html>

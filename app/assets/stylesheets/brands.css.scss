@@ -3,9 +3,9 @@
 body#brands {
 
    header.brand_head {
-      height: 190px;
       padding: 20px 0 30px;
       $text-color: #999;
+      @include clearfix;
 
       #title {
          float: left;
@@ -32,13 +32,9 @@ body#brands {
          }
 
          p {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: 0 auto;
             line-height: 1;
             color: $text-color;
+            margin: 28px 0 0;
 
             span{
                font-size: 1.5em;
@@ -51,7 +47,8 @@ body#brands {
       #info {
          position: relative;
          float: left;
-         width: 53%;
+         width: 48%;
+         margin-right: 5%;
          height: 100%;
 
          > h1 {
@@ -66,10 +63,10 @@ body#brands {
          }
 
          ul.evaluation {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            /* position: absolute; */
+            /* bottom: 0; */
+            /* left: 0; */
+            /* right: 0; */
 
             li {
                width: 100%;
@@ -77,13 +74,13 @@ body#brands {
                margin-top: 5px;
 
                .eva_name {
-                  width: 70px;
+                  width: 16%;
                   margin-right: 5px;
                   font-size: 1.2em;
                }
 
                .eva_container {
-                  width: 360px;
+                  width: 81%;
                }
             }
          }
@@ -115,7 +112,7 @@ body#brands {
                &:hover {
                   @include background(rgba(0, 162, 199, 0.6));
                   font-weight: bold;
-	       }
+               }
             }
          }
       }
@@ -124,7 +121,7 @@ body#brands {
    section.brand_form {
       input[type="text"] {
          @include inline-edit-input;
-         font-size: 1.3em;
+         font-size: 1.2em;
          height: 1.7em;
       }
 
@@ -134,6 +131,28 @@ body#brands {
 
       .field {
          margin: 30px 0;
+
+         .prefix {
+            color: #999;
+            font-size: 1.2em;
+         }
+
+         label {
+            display: block;
+            color: #999;
+         }
+
+         .field_with_errors {
+            label.message {
+               display: inline;
+               margin-left: 2em;
+               color: #f66;
+            }
+         }
+
+         .prefix+.field_with_errors {
+            display: inline;
+         }
       }
 
       .action {
@@ -141,10 +160,7 @@ body#brands {
          padding-right: 10em;
       }
 
-      label {
-         display: block;
-         color: #999;
-      }
+
 
       #dropzone {
          margin: 20px 0;
