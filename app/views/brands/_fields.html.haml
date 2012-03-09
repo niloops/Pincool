@@ -1,0 +1,16 @@
+.field
+  = f.text_field :title, placeholder: "请填写品牌名称", size: 20
+.field
+  = f.text_field :uri, placeholder: "请填写品牌网址", size: 20    
+.field
+  = label_tag :file, "请上传品牌logo图片:"
+  = upyun_file_field_tag 'file', :logo
+  = f.hidden_field :logo
+  #dropzone
+    - if @brand.logo 
+      = logo_tag @brand, :big
+      %p 您可以上传替换图片
+    - else    
+      %p 请上传大小不超过2M的图片
+.field
+  = f.text_field :description, placeholder: "请填写品牌一句话简介", size: 40

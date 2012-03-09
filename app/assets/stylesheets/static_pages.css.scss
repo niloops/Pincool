@@ -1,6 +1,6 @@
 @import "base";
 
-body#static_pages_signup {
+body#static_pages.sign_up {
 
    @include background(
       radial-gradient(rgba(255, 255, 255, 0.4), rgba(153, 153, 153, 0.4)),

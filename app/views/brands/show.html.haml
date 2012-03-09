@@ -1,2 +1,27 @@
-%h1 Brands#show
-%p Find me in app/views/brands/show.html.haml
+- provide :title, @brand.title
+%header.brand_head
+  #title
+    = logo_tag @brand, :big
+    = button_tag "订阅", title: "订阅后,可在我的主页上查看此品牌更新"
+    %p
+      %span 40000
+      人已订阅
+  #info
+    %h1= @brand.title
+    %p= @brand.description
+    - if @brand.edited_by? current_user
+      %p= link_to "[编辑]", edit_brand_path(@brand)
+    %ul.evaluation
+      %li.sensibility{"data-name"=>"印象", "data-value"=>"7", "data-max"=>"10", "data-desc"=>"外观/设计/印象 7/10"}
+      %li.rationality{"data-name"=>"内涵", "data-value"=>"8", "data-max"=>"10", "data-desc"=>"性能/质量/内涵 8/10"}
+      %li.economy{"data-name"=>"实惠", "data-value"=>"9", "data-max"=>"10", "data-desc"=>"经济/实用/方便 9/10"}      
+  #tags
+    %h2 领域
+    %ul
+      %li= link_to "跑车", "#"
+      %li= link_to "日用品", "#"
+      %li= link_to "电器", "#"
+      %li= link_to "音响", "#"
+- content_for :script do
+  :javascript
+    $(Pincool.brandShow);

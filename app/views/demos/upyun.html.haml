@@ -31,11 +31,25 @@
         dataType: 'json',
         url: 'http://v0.api.upyun.com/pincool-photo',
         forceIframeTransport: true,
+        multipart: true,
         formData: function() {
             return $('form').serializeArray();
         },
+        drop: function(e, data) {
+          console.log(e);
+          console.log(data);
+        }, 
         add: function(e, data) {
-          setTimeout(function(){data.submit()}, 1000);
+          console.log(data.files[0]);
+          data.submit();
+        },
+        submit: function(e, data) {
+            console.log(data.files[0]);
+            $('#dropzone').empty().append('<h2>submitting...</h2>');
+        },
+        send: function(e, data) {
+           console.log(data.files[0]);
+           return true;
         },
         done: function (e, data) {
             url = "http://pincool-photo.b0.upaiyun.com"+data.result.url+"!portrait";

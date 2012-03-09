@@ -5,4 +5,3 @@
 //= require jquery.fileupload
 //= require base
 //= require_tree .
-//= require ga

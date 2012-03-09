@@ -1,2 +1,15 @@
-%h1 Brands#index
-%p Find me in app/views/brands/index.html.haml
+%header
+  %h1 新增品牌列表(管理)
+%table
+  %tr
+    %th= "品牌名称"
+    %th= "品牌网址"
+    %th= "Logo"
+    %th= "创建用户"
+  - @brands.each do |brand|  
+    %tr
+      %td= brand.title
+      %td= link_to brand_url(brand), brand_path(brand)
+      %td= logo_tag brand, :small 
+      %td= brand.user.name
+= paginate @brands

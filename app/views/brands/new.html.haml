@@ -1,18 +1,12 @@
+- provide :title, "建立新品牌"
 %header
-  %h1 建立新品牌
-= form_for(@brand) do |f| 
-  .field
-    = f.text_field :title, placeholder: "请填写品牌名称"
-  .field
-    = label_tag :file, "请上传品牌logo图片:"
-    = upyun_file_field_tag 'file', :logo
-    #dropzone
-  -# .field
-  -#   = f.text_field :description, placeholder: "请填写品牌一句话简介"
-  -# .action  
-  -#   = f.submit "提交"
+  %h1= yield :title
+%section.brand_form
+  = form_for(@brand) do |f| 
+    = render 'fields', f: f
+    .action  
+      = f.button "发布"
+      = f.button "取消", type: "cancel"
 - content_for :script do
   :javascript
-    $(function() {
-      Pincool.fileUpload('#file', '#dropzone');
-    });
+    $(Pincool.brandForm);

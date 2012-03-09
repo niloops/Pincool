@@ -1,7 +1,6 @@
-Pincool.fileUpload = (file_input, dropzone) ->
+Pincool.fileUpload = (file_input, dropzone, callback_suc) ->
   $file = $(file_input)
   $dropzone = $(dropzone)
-  $dropzone.append('<p>您可以直接将图片拖到这里上传:</p>')
   $file.fileupload({
     dataType: 'json',
     dropZone: $dropzone,
@@ -19,6 +18,10 @@ Pincool.fileUpload = (file_input, dropzone) ->
       .find('p').text("您的图片正在上传,请稍候...")
       .end()
       .find('img').remove()
+  .bind 'fileuploadfail', (e, data) ->
+    $dropzone.removeClass()
+      .addClass("fail")
+      .find('p').text("对不起，网络通讯中断，请稍后再试")
   .bind 'fileuploaddone', (e, data) ->
     result = data.result
     img_src = $file.attr('data-result-url')
@@ -30,6 +33,7 @@ Pincool.fileUpload = (file_input, dropzone) ->
         .addClass("success")
         .find('p').text('图片上传成功')
         .before("<img src='#{img_src}'>")
+      callback_suc(result.url)
     else
       $dropzone
         .addClass("fail")

@@ -1,4 +1,4 @@
-body#invited_users_new {
+body#invited_users {
    form {
       label {
          font-size: 1.2em;
@@ -13,33 +13,21 @@ body#invited_users_new {
          }
       }
    }
-}
 
-body#invited_users_index {
    section > table {
-      width: 100%;
-
       tr {
-         line-height: 2em;
-
          th, td {
-            font-size: 1.2em;
             width: 15%;
-            text-align: center;
             
             &:nth-child(3) {
                font-size: 1em;
                width: 50%;
             }
          }
-
-         &:nth-child(even) {
-            background-color: #f4f4f4;
-         }
       }
    }
 
-   section > #new_invited_user {
+   section > #new_invited_user_link {
       text-align: right;
       margin-top: 2em;
       margin-right: 10%;

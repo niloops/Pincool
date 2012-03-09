@@ -1,4 +1,5 @@
-%h1 邀请用户列表
+%header
+  %h1 邀请用户列表
 %table
   %tr
     %th= "来自平台"
@@ -6,5 +7,6 @@
     %th= "登陆链接"
     %th= "操作"
   = render @invited_users
-#new_invited_user
+
+#new_invited_user_link
   = link_to "新增邀请用户", new_invited_user_path

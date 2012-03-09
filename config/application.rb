@@ -63,6 +63,6 @@ module Pincool
     config.assets.version = '1.0'
 
     # Precompile individual modernize_respond 
-    config.assets.precompile += ['modernizr_respond.js']
+    config.assets.precompile += ['modernizr_respond.js', 'ga.js']
   end
 end

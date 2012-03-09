@@ -1,50 +1,181 @@
 @import "base";
 
-body#brands_new {
-   input[type="text"] {
-      @include inline-edit-input;
-      font-size: 1.5em;
-      height: 1.7em;
-   }
+body#brands {
 
-   .field {
-      margin: 30px 0;
-   }
+   header.brand_head {
+      height: 190px;
+      padding: 20px 0 30px;
+      $text-color: #999;
 
-   label {
-      display: block;
-      color: #999;
-   }
-
-   #dropzone {
-      margin: 20px 0;
-      width: 300px;
-      height: 100px;
-      border: 1px dashed $site-border-color;
-      text-align: center;
-      color: #999;
-      p {
-         margin: 15% auto;
-      }
-      img {
+      #title {
          float: left;
-         margin: 10px;
+         width: 22%;
+         height: 100%;
+         margin-right: 20px;
+         text-align: center;
+         position: relative;
+
+         img {
+            display: block;
+            margin: 0 auto 25px;
+         }
+
+         button {
+            display: block;
+            width: 120px;
+            height: 40px;
+            margin: 0 auto;
+            padding-left: 18%;
+            @include background(image-url("subscribe.png") no-repeat 11% center,
+               image-url("split_line.png") no-repeat 33% center,
+                  linear-gradient(#fff, #ddd));
+         }
+
+         p {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: 0 auto;
+            line-height: 1;
+            color: $text-color;
+
+            span{
+               font-size: 1.5em;
+               vertical-align: text-bottom;
+               margin-right: 5px;
+            }
+         }
+      }
+
+      #info {
+         position: relative;
+         float: left;
+         width: 53%;
+         height: 100%;
+
+         > h1 {
+            display: inline;
+            font-size: 1.5em;
+            margin-right: 3px;
+         }
+
+         > p {
+            display: inline;
+            color: $text-color;
+         }
+
+         ul.evaluation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            li {
+               width: 100%;
+               line-height: 50px;
+               margin-top: 5px;
+
+               .eva_name {
+                  width: 70px;
+                  margin-right: 5px;
+                  font-size: 1.2em;
+               }
+
+               .eva_container {
+                  width: 360px;
+               }
+            }
+         }
+      }
+
+      #tags {
+         float: left;
+         width: 20%;
+         margin-top: -10px;
+
+         h2 {
+            color: $text-color;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+         }
+
+         li {
+            display: inline-block;
+            margin-bottom: 2em;
+            margin-right: .4em;
+
+            a{
+               padding: .6em;
+               color: #fff;
+               @include border-radius(3px);
+               @include background(rgba(0, 162, 199, 0.3));
+               @include transition(all 0.22s ease-out);
+
+               &:hover {
+                  @include background(rgba(0, 162, 199, 0.6));
+                  font-weight: bold;
+	       }
+            }
+         }
       }
    }
 
-   #dropzone.dragover {
-      background-color: #ffc;
-   }
+   section.brand_form {
+      input[type="text"] {
+         @include inline-edit-input;
+         font-size: 1.3em;
+         height: 1.7em;
+      }
 
-   #dropzone.submitting {
-      background: image-url("file_loader.gif") no-repeat center;
-   }
+      input[type="text"]#brand_title {
+         font-size: 1.5em;
+      }
 
-   #dropzone.success {
-      color: #9c3;
-   }
+      .field {
+         margin: 30px 0;
+      }
 
-   #dropzone.fail {
-      color: #f66;
+      .action {
+         text-align: right;
+         padding-right: 10em;
+      }
+
+      label {
+         display: block;
+         color: #999;
+      }
+
+      #dropzone {
+         margin: 20px 0;
+         width: 300px;
+         height: 100px;
+         border: 1px dashed $site-border-color;
+         text-align: center;
+         color: #999;
+         p {
+            margin: 15% auto;
+         }
+         img {
+            float: left;
+            margin: 10px;
+         }
+      }
+
+      #dropzone.dragover {
+         background-color: #ffc;
+      }
+
+      #dropzone.submitting {
+         background: image-url("file_loader.gif") no-repeat center;
+      }
+
+      #dropzone.success {
+         color: #9c3;
+      }
+
+      #dropzone.fail {
+         color: #f66;
+      }
    }
 }

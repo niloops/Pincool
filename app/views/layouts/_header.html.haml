@@ -13,4 +13,5 @@
       title: current_user.name, alt: current_user.name
       %strong= current_user.name
     %ul
+      %li= link_to "建立新品牌", new_brand_path
       %li= link_to "退出", signout_path, method: :delete

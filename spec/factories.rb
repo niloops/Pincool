@@ -8,7 +8,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    admin true
+    factory :admin do
+      admin true
+    end
 
     after_create do |user|
       # user.authentications << Factory.create(:authentication)
