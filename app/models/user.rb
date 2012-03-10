@@ -5,8 +5,9 @@ class User
   field :admin, type: Boolean, default: false
   
   embeds_many :authentications
-  has_many :brands
   index ["authentications.provider", "authentications.uid"]
+  has_many :found_brands, class_name: 'Brand'
+  has_and_belongs_to_many :followings, class_name: 'Brand'
 
   before_create :create_token
 
@@ -33,12 +34,31 @@ class User
     authentications.where(current: true).first
   end
 
+  def current_auth=(auth)
+    current_auth.update_attributes(current: false)
+    target_auth = authentications.where(provider: auth.provider)
+      .and(uid: auth.uid).first
+    target_auth && target_auth.update_attributes(current: true,
+                                                name: auth.name, image_url: auth.image_url)
+  end
+
   def name
     current_auth.name
   end
 
   def image_url
     current_auth.image_url
+  end
+
+  def follow(brand)
+    followings.find(brand.id) && return
+    followings << brand
+    brand.followers << self
+  end
+
+  def unfollow(brand)
+    followings.delete brand
+    brand.followers.delete self
   end
 
   private

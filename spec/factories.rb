@@ -17,8 +17,11 @@ FactoryGirl.define do
     end
   end
 
-  # factory :micropost do
-  #   content "Lorem ipsum"
-  #   user
-  # end
+  factory :brand do
+    title "BrandNew"
+    sequence(:uri) {|n| "uri#{n}"}
+    logo "/img.png"
+    description "Description"
+    #founder user
+  end
 end

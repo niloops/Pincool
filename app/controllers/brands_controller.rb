@@ -8,8 +8,9 @@ class BrandsController < ApplicationController
   end
 
   def create
-    @brand = current_user.brands.build(params[:brand])
+    @brand = Brand.new(params[:brand].merge(founder: current_user))
     if @brand.save
+      current_user.follow @brand
       redirect_to @brand
     else
       render 'new'
@@ -31,6 +32,17 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.desc(:created_at).page params[:page]
+  end
+
+  def follow_toggle
+    @brand = Brand.find_by_uri params[:id]
+    if @brand.followed_by? current_user
+      current_user.unfollow @brand
+      render "_follow_button", layout: false
+    else
+      current_user.follow @brand
+      render "_unfollow_button", layout: false
+    end
   end
 
   private

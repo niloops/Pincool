@@ -10,10 +10,14 @@ Pincool::Application.routes.draw do
   match "/auth/:provider/callback", to: "sessions#create"
   match '/signout', to: 'sessions#destroy', via: :delete
   
-  resources :users, only: [:show]
+  resources :users, only: [:show] 
   match "/home", to: "users#home"
 
-  resources :brands
+  resources :brands do
+    member do
+      post "follow_toggle"
+    end
+  end
 
   resources :invited_users, only: [:new, :create, :index, :destroy]
   # The priority is based upon order of creation:

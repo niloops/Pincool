@@ -6,10 +6,11 @@ class Brand
   field :uri, type: String
   field :logo, type: String
   field :description, type: String
-
-  belongs_to :user
   index :uri, unique: true
   index :created_at
+
+  belongs_to :founder, class_name: 'User', index: true
+  has_and_belongs_to_many :followers, class_name: 'User'
 
   validates :logo, presence: true
   validates :description, presence: true
@@ -34,7 +35,11 @@ class Brand
   end
 
   def edited_by?(edit_user)
-    edit_user.admin? || user == edit_user 
+    edit_user.admin? || founder == edit_user 
+  end
+
+  def followed_by?(user)
+    followers.find(user.id)
   end
 
   def to_param

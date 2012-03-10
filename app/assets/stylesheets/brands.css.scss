@@ -20,15 +20,25 @@ body#brands {
             margin: 0 auto 25px;
          }
 
-         button {
-            display: block;
-            width: 120px;
-            height: 40px;
-            margin: 0 auto;
-            padding-left: 18%;
-            @include background(image-url("subscribe.png") no-repeat 11% center,
-               image-url("split_line.png") no-repeat 33% center,
-                  linear-gradient(#fff, #ddd));
+         #follow_toggle {
+            button {
+               @include button_style;
+               display: block;
+               margin: 0 auto;
+               padding-left: 18%;
+               width: 120px;
+               height: 40px;
+            }
+            button.follow {
+               @include background(image-url("subscribe.png") no-repeat 11% center,
+                  image-url("split_line.png") no-repeat 33% center,
+                     linear-gradient(#fff, #ddd));
+            }
+            button.unfollow {
+               @include background(image-url("unsubscribe.png") no-repeat 11% center,
+                  image-url("split_line.png") no-repeat 33% center,
+                     linear-gradient(#fff, #ddd));
+            }
          }
 
          p {

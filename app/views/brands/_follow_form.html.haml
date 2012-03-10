@@ -1,0 +1,6 @@
+= form_tag follow_toggle_brand_path(@brand), remote: true, 
+  id: "follow_toggle", 'data-type' => 'html' do
+  - if current_user && @brand.followed_by?(current_user)
+    = render "unfollow_button"
+  - else
+    = render "follow_button"

@@ -27,4 +27,26 @@ describe User do
     before {@user = User.find_by_id_with_token(@user.id, @user.token)}
     it {should_not be_nil}
   end
+
+  describe "Following the brand" do
+    let(:brand) {FactoryGirl.create(:brand)}
+    
+    before {@user.follow brand}
+
+    its(:followings) {should include brand}
+
+    describe "followed brand" do
+      subject {brand}
+      its(:followers) {should include @user}
+      it {should be_followed_by @user}
+    end
+
+    describe "and unfollowing" do
+      before {@user.unfollow brand}
+      its(:followings) {should_not include brand}
+      specify {brand.reload.should_not be_followed_by @user}
+    end
+
+  end
+  
 end

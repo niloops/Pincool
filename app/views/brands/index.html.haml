@@ -11,5 +11,5 @@
       %td= brand.title
       %td= link_to brand_url(brand), brand_path(brand)
       %td= logo_tag brand, :small 
-      %td= brand.user.name
+      %td= link_to brand.founder.name, user_url(brand.founder)
 = paginate @brands

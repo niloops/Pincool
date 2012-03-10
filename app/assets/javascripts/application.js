@@ -1,3 +1,9 @@
+// jquery_ujs events:
+// ajax:beforeSend evt, xhr, settings
+// ajax:success evt, data, status, xhr
+// ajax:complete evt, xhr, status
+// ajax:error evt, xhr, status, error
+
 //= require modernizr_respond
 //= require jquery
 //= require jquery_ujs
