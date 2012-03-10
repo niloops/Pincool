@@ -1,1 +1,15 @@
-%h1 welcome #{@user.name}
+- provide :title, @user.name
+%header.person_head
+  = image_tag @user.image_big_url, class: "people_thumb_big", 
+    alt: current_user.name
+  %h1= @user.name
+  = provider_tag @user
+  %nav
+    = link_to "订阅了#{@user.followings.count}个品牌", 
+    followings_user_path(@user), remote: true
+    = link_to "创建了#{@user.found_brands.count}个品牌", 
+    found_brands_user_path(@user), remote: true
+%section.person_content
+- content_for :script do
+  :javascript
+    $(Pincool.userShow);

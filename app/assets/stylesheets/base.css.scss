@@ -1,24 +1,8 @@
 @import "compass/css3";
+@import "reset";
 
 $site-width: 920px;
 $site-border-color: #ccc;
-
-@mixin inline-edit-input {
-   border: none;
-   outline: none;
-   background-color: #ffc;
-}
-
-@mixin clearfix {
-   &:before, &:after {
-      content: "";
-      display: table;
-   }
-   &:after {
-      clear: both;
-   }
-   zoom: 1;
-}
 
 body, input, label, select, option, textarea, button, fieldset, legend {
    font: {
@@ -32,6 +16,10 @@ a {
    $link_color: #158d9f;
    color: $link_color;
    text-decoration: none;
+
+   &:hover {
+      color: $link_color;
+   }
 
    &:visited {
       color: $link_color;
@@ -71,6 +59,23 @@ body {
 /*    height: 80px; */
 /* } */
 
+@mixin clearfix {
+   &:before, &:after {
+      content: "";
+      display: table;
+   }
+   &:after {
+      clear: both;
+   }
+   zoom: 1;
+}
+
+@mixin inline-edit-input {
+   border: none;
+   outline: none;
+   background-color: #ffc;
+}
+
 @mixin button_style {
    border: 1px solid #ccc;
    color: #999;
@@ -85,6 +90,10 @@ body {
    &:active {
       @include box-shadow(0 1px 2px #AAAAAA inset);
    }
+}
+
+@mixin loading-small {
+   background: image-url("loader-small.gif") no-repeat center;
 }
 
 button {
@@ -286,7 +295,7 @@ body.signed_in > section {
             margin-right: 5px;
 
             &:before {
-               content: "·";
+               content: "\00b7";
                padding-right: 8px;
                font-weight: normal;
             }

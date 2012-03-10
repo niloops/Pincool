@@ -9,7 +9,7 @@ class Brand
   index :uri, unique: true
   index :created_at
 
-  belongs_to :founder, class_name: 'User', index: true
+  belongs_to :founder, class_name: 'User', index: true, inverse_of: :found_brands
   has_and_belongs_to_many :followers, class_name: 'User'
 
   validates :logo, presence: true

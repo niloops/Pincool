@@ -1,0 +1,13 @@
+@import "base";
+
+body#users {
+   header.person_head {
+      > * {margin-right: 1em;}
+      img {vertical-align: bottom;}
+   }
+
+   section.person_content.loading_small {
+      height: 100px;
+      @include loading-small;
+   }
+}

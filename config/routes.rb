@@ -10,7 +10,13 @@ Pincool::Application.routes.draw do
   match "/auth/:provider/callback", to: "sessions#create"
   match '/signout', to: 'sessions#destroy', via: :delete
   
-  resources :users, only: [:show] 
+  resources :users, only: [:show] do
+    member do
+      get "followings"
+      get "found_brands"
+    end
+  end
+  
   match "/home", to: "users#home"
 
   resources :brands do

@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create]
+  before_filter :signed_in_user, only: [:new, :create, :show]
   before_filter :author, only: [:edit, :update]
   before_filter :admin_user, only: [:index]
 

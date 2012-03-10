@@ -5,6 +5,8 @@ class Authentication
   field :uid, type: String
   field :name, type: String
   field :image_url, type: String
+  field :image_big_url, type: String
+  field :link_url, type: String
   field :current, type: Boolean, default: false
   embedded_in :user
 
@@ -25,13 +27,18 @@ class Authentication
 
     def weibo(auth)
       provider_default(auth)
-        .merge(uid: auth[:extra][:raw_info][:id])
+        .merge(uid: auth[:extra][:raw_info][:id],
+               image_big_url: auth[:info][:image].sub(/\/50\//, '/180/'),
+               link_url: "http://weibo.com/#{auth[:extra][:raw_info][:id]}")
     end
 
     def provider_default(auth)
-      {uid: auth[:uid],
+      {
+        uid: auth[:uid],
         name: auth[:info][:name],
-        image_url: auth[:info][:image]}
+        image_url: auth[:info][:image],
+        image_big_url: auth[:info][:image],
+      }
     end
 
   end
