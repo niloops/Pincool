@@ -25,6 +25,8 @@ class Brand
   validates_format_of :logo, with: /^\/[0-9a-z]+\.[a-z]+$/
   validates_presence_of :description, message: "一句话简介不能为空"
   validates_length_of :description, within: 1..140, too_long: "简介最多只能输入%{count}个字"
+
+  after_create :followed_by_founder
   
   paginates_per 20
 
@@ -40,6 +42,10 @@ class Brand
 
   def followed_by?(user)
     followers.find(user.id)
+  end
+
+  def followed_by_founder
+    founder.follow self
   end
 
   def to_param

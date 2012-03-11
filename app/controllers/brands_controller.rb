@@ -9,12 +9,7 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(params[:brand].merge(founder: current_user))
-    if @brand.save
-      current_user.follow @brand
-      redirect_to @brand
-    else
-      render 'new'
-    end
+    @brand.save ? (redirect_to @brand) : (render 'new')
   end
 
   def edit
