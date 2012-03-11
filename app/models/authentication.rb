@@ -8,7 +8,7 @@ class Authentication
   field :image_big_url, type: String
   field :link_url, type: String
   field :current, type: Boolean, default: false
-  embedded_in :user
+  embedded_in :user, :inverse_of => :authentications
 
   validates :provider, presence: true
   validates :uid, presence: true

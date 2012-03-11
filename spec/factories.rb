@@ -7,7 +7,7 @@ FactoryGirl.define do
     sequence(:image_url) {|n| "http://weibo.com/images/#{n}.png"}
   end
 
-  factory :user do
+  factory :user, aliases: [:founder] do
     factory :admin do
       admin true
     end
@@ -22,6 +22,6 @@ FactoryGirl.define do
     sequence(:uri) {|n| "uri#{n}"}
     logo "/img.png"
     description "Description"
-    #founder user
+    founder
   end
 end
