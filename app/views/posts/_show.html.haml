@@ -1,7 +1,10 @@
-%section#photos
+- if @post.respond_to? :title
+  %section#post-title
+    %h1= @post.content
+%section#post-photos
   #imagezone    
     - photo = @post.photos.first
     = link_to photo_tag(photo, :big), 
     image_url(:photo, photo.image, :origin)
-%section#content
+%section#post-content
   %p= @post.content

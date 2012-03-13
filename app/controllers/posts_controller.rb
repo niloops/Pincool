@@ -1,28 +1,18 @@
 class PostsController < ApplicationController
   before_filter :signed_in_user
   before_filter :author, only: [:edit, :update, :destroy]
+  before_filter :build_post, only: [:new, :create]
 
   def new
-    brand = Brand.find_by_uri params[:brand_id]
-    @post = Post.get_class(params[:type] || "feeling")
-      .new(author: current_user, brand: brand)
     render 'show'
   end
 
   def create
-    brand = Brand.find_by_uri params[:brand_id]
-    @post = Post.get_class(params[:type])
-      .new(author: current_user,
-           brand: brand,
-           photos: [Photo.new(image: params[:photo])],
-           content: params[:content])
-    @post.save ? (redirect_to brand_post_path(brand, @post)) : (render 'show')
+    return save_post
   end
 
   def update
-    @post.content = params[:content]
-    @post.photos = [Photo.new(image: params[:photo])]
-    @post.save ? (redirect_to brand_post_path(@post.brand, @post)) : (render 'show')
+    return save_post
   end
 
   def show
@@ -39,6 +29,21 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def build_post
+    brand = Brand.find_by_uri params[:brand_id]
+    @post = Post.get_class(params[:type])
+      .new(author: current_user,brand: brand)
+  end
+
+  def save_post
+    @post.evas = [1,2,3] if @post.respond_to? :evas
+    
+    @post.content = params[:content]
+    @post.photos = [Photo.new(image: params[:photo])] if params[:photo]
+    @post.title = params[:title] if @post.respond_to? :title
+    @post.save ? (redirect_to brand_post_path(@post.brand, @post)) : (render 'show')
+  end
 
   def author
     @post = Post.find params[:id]

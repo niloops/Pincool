@@ -64,5 +64,7 @@ module Pincool
 
     # Precompile individual modernize_respond 
     config.assets.precompile += ['ga.js']
+
+    config.autoload_paths << "#{Rails.root}/lib"
   end
 end

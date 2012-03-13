@@ -59,4 +59,11 @@ Pincool.postTexts =
 Pincool.postForm = ->
   Pincool.postPhotos.ready()
   Pincool.postTexts.ready()
-
+  $("form").submit ->
+    if $('#title').length > 0 && !$('#title').val()
+      $('#title')
+        .after('<span>请您输入标题</span>')
+        .next().addClass("error_message")
+    unless $("#photo").val()
+      $("#dropzone").addClass("fail").find('p').text("请您上传图片")
+      return false

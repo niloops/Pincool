@@ -14,6 +14,7 @@ describe Feeling do
   subject {@feeling}
 
   it {should be_valid}
+  it {should_not respond_to :title}
   its(:author) {should == author}
   its(:brand) {should == brand}
 

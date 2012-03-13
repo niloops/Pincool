@@ -1,4 +1,5 @@
 = form_tag brand_post_path(@post.brand, @post), method: "put" do |f|
+  = render 'title'
   = render 'photos'
   = render 'content'
   .action

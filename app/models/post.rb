@@ -1,6 +1,8 @@
 class Post
   include Mongoid::Document
   include Mongoid::Timestamps
+
+  field :content, type: String
   belongs_to :author, class_name: 'User',
   index: true, inverse_of: :posts
   belongs_to :brand,
@@ -13,7 +15,8 @@ class Post
   validates_presence_of :author
   validates_presence_of :brand
   validates_presence_of :type
-
+  validates_length_of :content, maximum: 65535
+  
   class << self
     def get_class(type)
       Kernel.const_get(type.capitalize)
