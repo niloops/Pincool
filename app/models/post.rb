@@ -14,6 +14,12 @@ class Post
   validates_presence_of :brand
   validates_presence_of :type
 
+  class << self
+    def get_class(type)
+      Kernel.const_get(type.capitalize)
+    end
+  end
+
   def edited_by?(edit_user)
     edit_user.admin? || author == edit_user 
   end

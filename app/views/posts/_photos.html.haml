@@ -1,0 +1,16 @@
+%section#photos
+  - if @post.photos.empty?
+    - photo = nil
+  - else
+    - photo = @post.photos.first 
+  #change_photo_link
+    = link_to "更换图片", "#"
+  #change_photo_form
+    = upyun_file_field_tag 'file', :photo
+  #imagezone<
+    - if photo
+      = link_to photo_tag(photo, :big), 
+      image_url(:photo, photo.image, :origin)
+  #dropzone
+    %p 请上传大小不超过2M的图片
+  = hidden_field_tag :photo, photo && photo.image

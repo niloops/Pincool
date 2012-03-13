@@ -1,0 +1,11 @@
+= form_tag brand_posts_path(@post.brand), method: :post do |f|
+  = render 'photos'
+  = render 'content'  
+  = hidden_field_tag :type, @post.type
+  .action
+    = button_tag "发布"
+    = button_tag "取消", type: "cancel"
+  - content_for :script do
+    :javascript
+      $(Pincool.postForm)
+-# = form_tag brand_post_path(@post.brand, @post), method: :put do |f|

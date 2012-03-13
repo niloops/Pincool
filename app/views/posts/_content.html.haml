@@ -1,0 +1,7 @@
+%section#contents
+  - unless @post.content.blank?
+    %p{"data-name" => "content"}
+      = @post.content
+    %span.edit_tips 点击正文编辑
+  = text_area_tag 'content', @post.content, 
+  placeholder: "请在这里说点感想吧", class: "inline_edit"

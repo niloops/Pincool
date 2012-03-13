@@ -1,13 +1,14 @@
 - provide :title, @post.brand.title
-%section#post_show{class: [@post.type.downcase, @action]}
+%section#post_show{class: @post.type.downcase}
   %header.brands_normal
     = render @post.brand
   - if current_user?(@post.author)
-    = render 'edit'
+    = (@post.new?) ? (render 'new') : (render 'edit')
   - else
     = render 'show'
   %footer
+    - if current_user?(@post.author) && !@post.new?
+      #destroy
+        = link_to "[删除本贴]", brand_post_path(@post.brand, @post),
+        method: :delete, confirm: "确定要删除吗？"
     = render 'author', post: @post  
-- content_for :script do
-  :javascript
-    $(Pincool.postForm);

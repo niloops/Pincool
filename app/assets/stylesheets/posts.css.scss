@@ -45,11 +45,8 @@
       margin-top: 20px;
 
       #change_photo_link, #change_photo_form {
-         margin-bottom: 10px;
-      }
-
-      #change_photo_form {
          display: none;
+         margin-bottom: 10px;
       }
 
       #imagezone {
@@ -89,7 +86,7 @@
          resize: vertical;
       }
 
-      .inline_edit {
+      .inline_edit, .inline_editing {
          background: #ffc;
       }
 
@@ -101,5 +98,12 @@
    .action {
       text-align: right;
       > * {vertical-align: bottom;}
+   }
+
+   footer {
+      #destroy {
+         float: right;
+         margin-right: 2em;
+      }
    }
 }

@@ -1,22 +1,9 @@
 = form_tag brand_post_path(@post.brand, @post), method: "put" do |f|
-  %section#photos
-    - photo = @post.photos.first
-    #change_photo_link
-      = link_to "更换图片", "#"
-    #change_photo_form
-      = upyun_file_field_tag 'file', :photo
-    #imagezone    
-      = link_to photo_tag(photo, :big), 
-      image_url(:photo, photo.image, :origin)
-    #dropzone
-      %p 请上传大小不超过2M的图片
-    = hidden_field_tag :photo, photo.image
-  %section#contents
-    %p.editable{"data-name" => "content"}
-      = @post.content
-    %span.edit_tips 点击正文编辑
-    = text_area_tag 'content', @post.content, 
-    placeholder: "说点什么吧", class: "inline_edit"
+  = render 'photos'
+  = render 'content'
   .action
     = button_tag "保存"
     = button_tag "取消", type: "cancel"
+- content_for :script do
+  :javascript
+    $(Pincool.postForm)

@@ -1,49 +1,62 @@
-Pincool.postForm = ->
-  upload_toggle = ->
-    $('#change_photo_link,#change_photo_form,
-      #imagezone, #dropzone').slideToggle()
+Pincool.postPhotos =
+  hasAny: ->
+    $.trim($('#imagezone').html())
 
-  file_upload_ready = ->
-    Pincool.fileUpload '#file', '#dropzone', (photo_url) ->
+  showChange: ->
+    $('#change_photo_form,  #dropzone').slideUp()
+    $('#change_photo_link,  #imagezone').slideDown()
+
+  showUpload: ->
+    $('#change_photo_form,  #dropzone').slideDown()
+    $('#change_photo_link,  #imagezone').slideUp()
+
+  changeReady: ->
+    this.showChange()
+    $('#change_photo_link').click (e) =>
+      e.preventDefault()
+      this.uploadReady()
+
+  uploadReady: ->
+    this.showUpload()
+    Pincool.fileUpload '#file', '#dropzone', (photo_url) =>
       img_src = $('#file').attr('data-result-url')
-      .replace("/stub_path", photo_url)
-      $('#dropzone').find('p').text("图片上传成功,读取中...")
+        .replace("/stub_path", photo_url)
+      $('#dropzone').find('p').text("图片上传成功,加载中...")
       $('#imagezone')
         .empty()
         .prepend("<img src='#{img_src}'>")
         .find('img')
-        .load ->
-          upload_toggle()
+        .load =>
+          this.changeReady()
           $('#dropzone')
             .removeClass()
             .find('p').text("请重新上传图片")
       $('#photo').val(photo_url)
 
-  editable_ready = ->
-    $('.editable')
-      .hover ->
-        $(this).toggleClass("inline_edit")
-      .click ->
-        contents = $.trim($(this).text())
-        name = $(this).attr('data-name')
-        $(this).hide().next().hide()
-        $("##{name}")
-          .val(contents)
-          .show()
-          .focus()
-     .each ->
-        $(this).trigger('click') unless $.trim($(this).text())
+  ready: ->
+    if this.hasAny()
+      this.changeReady()
+    else
+      this.uploadReady()
 
+Pincool.postTexts =
+  ready: ->
+    $('.inline_edit').each (index, element) =>
+      id = $(element).attr("id")
+      $show = $("[data-name=\"#{id}\"]")
+      return $(element).slideDown() if $show.length == 0
+      $show
+        .hover ->
+          $(this).toggleClass("inline_editing")
+        .click ->
+          contents = $.trim($(this).text())
+          $(this).hide().next().hide()
+          $(element)
+            .val(contents)
+            .show()
+            .focus()
 
-  form_ready = ->
-    $("form").submit ->
-      if $("#post_photo").val()
-        $("#dropzone").addClass("fail").find('p').text("请您上传图片")
-        return false
+Pincool.postForm = ->
+  Pincool.postPhotos.ready()
+  Pincool.postTexts.ready()
 
-  $('#change_photo_link').click ->
-    upload_toggle()
-    file_upload_ready()
-
-  editable_ready()
-  form_ready()

@@ -1,4 +1,5 @@
 .author
   = link_to author_avatar(post.author), user_path(post.author)
   = link_to post.author.name, user_path(post.author)
-  = time_tag post.updated_at, time_ago_in_words(post.updated_at)+" ago"
+  - if post.updated_at
+    = time_tag post.updated_at, time_ago_in_words(post.updated_at)+" ago"
