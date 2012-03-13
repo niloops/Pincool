@@ -13,4 +13,8 @@ class Post
   validates_presence_of :author
   validates_presence_of :brand
   validates_presence_of :type
+
+  def edited_by?(edit_user)
+    edit_user.admin? || author == edit_user 
+  end
 end

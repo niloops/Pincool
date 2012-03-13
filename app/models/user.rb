@@ -29,7 +29,7 @@ class User
 
     def find_by_id_with_token(id, token)
       user = find(id)
-      (user.token == token) ? user : nil
+      (user && user.token == token) ? user : nil
     end
 
     def create_with_auth(auth)

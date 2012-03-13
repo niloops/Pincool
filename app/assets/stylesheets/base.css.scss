@@ -3,6 +3,7 @@
 
 $site-width: 920px;
 $site-border-color: #ccc;
+$site-aux-text-color: #999;
 
 body, input, label, select, option, textarea, button, fieldset, legend {
    font: {
@@ -78,7 +79,7 @@ body {
 
 @mixin button_style {
    border: 1px solid #ccc;
-   color: #999;
+   color: $site-aux-text-color;
    @include background(linear-gradient(#fff, #ddd));
    @include border-radius(3px);
 
@@ -140,7 +141,7 @@ nav.pagination {
 .edit_tips {
    display: inline-block;
    background-color: #ffc;
-   color: #999;
+   color: $site-aux-text-color;
    padding: 3px;
    vertical-align: 5px;
 }
@@ -148,7 +149,7 @@ nav.pagination {
 /* header */
 
 body.signed_in > header {
-   $header-text-color: #999;
+   $header-text-color: $site-aux-text-color;
 
    position: fixed;
    z-index: 100;
@@ -284,7 +285,7 @@ body.signed_in > section {
          display: inline-block;
          margin: 0;
          font-size: 1.2em;
-         color: #999;
+         color: $site-aux-text-color;
       }
 
       > nav {
@@ -302,11 +303,17 @@ body.signed_in > section {
          }
 
          .current {
-            color: #999;
+            color: $site-aux-text-color;
             font-weight:bold;
          }
       }
    }
+}
+
+/* footer */
+
+body.signed_in > footer {
+   height: 100px;
 }
 
 /* evaluations */
@@ -369,4 +376,33 @@ ul.evaluation {
          color: #9c3;
       }
    }
+}
+
+
+/*file upload*/
+
+#dropzone {
+   margin: 20px 0;
+   width: 50%;
+   height: 20%;
+   border: 1px dashed $site-border-color;
+   text-align: center;
+   color: $site-aux-text-color;
+   p {margin: 15% auto;}
+}
+
+#dropzone.dragover {
+   background-color: #ffc;
+}
+
+#dropzone.submitting {
+   @include loading-small;
+}
+
+#dropzone.success {
+   color: #9c3;
+}
+
+#dropzone.fail {
+   color: #f66;
 }

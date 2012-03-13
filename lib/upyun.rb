@@ -3,11 +3,13 @@ class UpYun
     @memos = {
       logo: {
         bucket: "pincool-brand-logo",
-        secret: "ABT8rJDmWw9WcPPHv35oeYxVO4k="
+        secret: "ABT8rJDmWw9WcPPHv35oeYxVO4k=",
+        thumbs: {big: "80", small: "40", origin: nil}
       },
       photo: {
         bucket: "pincool-photo",
-        secret: "piE8AyMbVx5rn7HTp3wuJO3R8EM="
+        secret: "piE8AyMbVx5rn7HTp3wuJO3R8EM=",
+        thumbs: {big: "portrait.big", small: "portrait", origin: nil}
       }
     }[type]
     @domain = "http://#{@memos[:bucket]}.b0.upaiyun.com"
@@ -40,12 +42,8 @@ class UpYun
   end
 
   def url(path, thumb)
-    size = case thumb
-           when :big
-             80
-           when :small
-             40
-           end
-    "#{@domain}#{path}!#{size}"
+    type = @memos[:thumbs][thumb] 
+    type &&= "!#{type}"
+    "#{@domain}#{path}#{type}"
   end
 end

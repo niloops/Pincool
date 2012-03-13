@@ -1,0 +1,13 @@
+- provide :title, @post.brand.title
+%section#post_show{class: [@post.type.downcase, @action]}
+  %header.brands_normal
+    = render @post.brand
+  - if current_user?(@post.author)
+    = render 'edit'
+  - else
+    = render 'show'
+  %footer
+    = render 'author', post: @post  
+- content_for :script do
+  :javascript
+    $(Pincool.postForm);

@@ -4,7 +4,7 @@ body#brands {
 
    header.brand_head {
       padding: 20px 0 30px;
-      $text-color: #999;
+      $text-color: $site-aux-text-color;
       @include clearfix;
 
       #title {
@@ -73,11 +73,6 @@ body#brands {
          }
 
          ul.evaluation {
-            /* position: absolute; */
-            /* bottom: 0; */
-            /* left: 0; */
-            /* right: 0; */
-
             li {
                width: 100%;
                line-height: 50px;
@@ -117,7 +112,6 @@ body#brands {
                color: #fff;
                @include border-radius(3px);
                @include background(rgba(0, 162, 199, 0.3));
-               @include transition(all 0.22s ease-out);
 
                &:hover {
                   @include background(rgba(0, 162, 199, 0.6));
@@ -143,13 +137,13 @@ body#brands {
          margin: 30px 0;
 
          .prefix {
-            color: #999;
+            color: $site-aux-text-color;
             font-size: 1.2em;
          }
 
          label {
             display: block;
-            color: #999;
+            color: $site-aux-text-color;
          }
 
          .field_with_errors {
@@ -171,35 +165,13 @@ body#brands {
       }
 
       #dropzone {
-         margin: 20px 0;
-         width: 300px;
+         width: 30%;
          height: 100px;
-         border: 1px dashed $site-border-color;
-         text-align: center;
-         color: #999;
-         p {
-            margin: 15% auto;
-         }
+
          img {
             float: left;
             margin: 10px;
          }
-      }
-
-      #dropzone.dragover {
-         background-color: #ffc;
-      }
-
-      #dropzone.submitting {
-         @include loading-small;
-      }
-
-      #dropzone.success {
-         color: #9c3;
-      }
-
-      #dropzone.fail {
-         color: #f66;
       }
    }
 }
@@ -221,7 +193,6 @@ body#brands {
          padding: 20px 0;
          width: 140px;
          height: 40px;
-         @include transition(all 0.22s ease-out);
          @include border-radius(3px);
 
          &:hover {
@@ -242,7 +213,7 @@ body#brands {
 
       p {
          margin: 5px 0;
-         color: #999;
+         color: $site-aux-text-color;
       }
 
       ul.evaluation {
@@ -260,5 +231,30 @@ body#brands {
          }
       }
 
+   }
+}
+
+.brands_normal {
+
+   .brand {
+      padding: 5px;
+      overflow: hidden;
+
+      img {
+         float: left;
+         margin-right: 10px;
+      }
+
+      .brand_title {
+         display: block;
+         padding-top: 8px;
+         font-size: 1em;
+      }
+
+      p {
+         padding-top: 2px;
+         margin: 0;
+         color: $site-aux-text-color;
+      }
    }
 }

@@ -13,9 +13,9 @@
   = csrf_meta_tags
 %body{id: params[:controller], class: ((signed_in?) ? "signed_in" : "sign_up")}
   - if signed_in?
-    %header= render 'layouts/header'
-    %section= yield
-    %footer= render 'layouts/footer'
+    = render 'layouts/header'
+    = yield
+    = render 'layouts/footer'
   - else
     = yield
   = yield :script

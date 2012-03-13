@@ -1,12 +1,13 @@
 - provide :title, "编辑-#{@brand.title}"
-%header
-  %h1= yield :title
-%section.brand_form
-  = form_for @brand, validate: true do |f| 
-    = render 'fields', f: f
-    .action  
-      = f.button "更新"
-      = f.button "取消", type: "cancel"
+%section
+  %header
+    %h1= yield :title
+  %section.brand_form
+    = form_for @brand, validate: true do |f| 
+      = render 'fields', f: f
+      .action  
+        = f.button "保存"
+        = f.button "取消", type: "cancel"
 - content_for :script do
   :javascript
     $(Pincool.brandForm);

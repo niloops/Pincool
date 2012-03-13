@@ -1,10 +1,11 @@
 Pincool.slideshows = (->
-  $imgs = $('figure img')
-  $phases = $('section ul li')
-  _height = $('figure').height()
-  _nums = $imgs.length
   _current = -1
   ->
+    $phases = $('section ul li')
+    $imgs = $('figure img')
+    _height = $('figure').height()
+    _nums = $imgs.length
+
     _show = ->
       ++_current >= _nums && (_current = 0)
       $imgs.eq(_current).show()

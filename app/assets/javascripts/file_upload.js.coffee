@@ -24,15 +24,12 @@ Pincool.fileUpload = (file_input, dropzone, callback_suc) ->
       .find('p').text("对不起，网络通讯中断，请稍后再试")
   .bind 'fileuploaddone', (e, data) ->
     result = data.result
-    img_src = $file.attr('data-result-url')
-      .replace("/stub_path", result.url)
     $dropzone.removeClass()
     $file.val()
     if result.code == "200"
       $dropzone
         .addClass("success")
         .find('p').text('图片上传成功')
-        .before("<img src='#{img_src}'>")
       callback_suc(result.url)
     else
       $dropzone

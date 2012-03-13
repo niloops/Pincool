@@ -1,0 +1,7 @@
+%section#photos
+  #imagezone    
+    - photo = @post.photos.first
+    = link_to photo_tag(photo, :big), 
+    image_url(:photo, photo.image, :origin)
+%section#content
+  %p= @post.content

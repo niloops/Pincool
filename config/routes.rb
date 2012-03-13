@@ -23,6 +23,7 @@ Pincool::Application.routes.draw do
     member do
       post "follow_toggle"
     end
+    resources :posts 
   end
 
   resources :invited_users, only: [:new, :create, :index, :destroy]

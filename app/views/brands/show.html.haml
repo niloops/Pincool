@@ -1,27 +1,28 @@
 - provide :title, @brand.title
-%header.brand_head
-  #title
-    = logo_tag @brand, :big
-    = render "follow_form"
-    %p
-      %span#followers_count= @brand.followers.count
-      人已订阅
-  #info
-    %h1= @brand.title
-    %p= @brand.description
-    - if current_user && @brand.edited_by?(current_user)
-      %p= link_to "[编辑]", edit_brand_path(@brand)
-    %ul.evaluation
-      %li.sensibility{"data-name"=>"印象", "data-value"=>"7", "data-max"=>"10", "data-desc"=>"外观/设计/印象 7/10"}
-      %li.rationality{"data-name"=>"内涵", "data-value"=>"8", "data-max"=>"10", "data-desc"=>"性能/质量/内涵 8/10"}
-      %li.economy{"data-name"=>"实惠", "data-value"=>"9", "data-max"=>"10", "data-desc"=>"经济/实用/方便 9/10"}
-  #tags
-    %h2 领域
-    %ul
-      %li= link_to "跑车", "#"
-      %li= link_to "日用品", "#"
-      %li= link_to "电器", "#"
-      %li= link_to "音响", "#"
-- content_for :script do
-  :javascript
-    $(Pincool.brandShow);
+%section
+  %header.brand_head
+    #title
+      = logo_tag @brand, :big
+      = render "follow_form"
+      %p
+        %span#followers_count= @brand.followers.count
+        人已订阅
+    #info
+      %h1= @brand.title
+      %p= @brand.description
+      - if current_user && @brand.edited_by?(current_user)
+        %p= link_to "[编辑]", edit_brand_path(@brand)
+      %ul.evaluation
+        %li.sensibility{"data-name"=>"印象", "data-value"=>"7", "data-max"=>"10", "data-desc"=>"外观/设计/印象 7/10"}
+        %li.rationality{"data-name"=>"内涵", "data-value"=>"8", "data-max"=>"10", "data-desc"=>"性能/质量/内涵 8/10"}
+        %li.economy{"data-name"=>"实惠", "data-value"=>"9", "data-max"=>"10", "data-desc"=>"经济/实用/方便 9/10"}
+    #tags
+      %h2 领域
+      %ul
+        %li= link_to "跑车", "#"
+        %li= link_to "日用品", "#"
+        %li= link_to "电器", "#"
+        %li= link_to "音响", "#"
+  - content_for :script do
+    :javascript
+      $(Pincool.brandShow);

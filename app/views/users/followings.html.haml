@@ -1,2 +1,4 @@
 %ul.brands_list
-  = render @brands
+  - @brands.each do |brand|
+    %li
+      = render brand
