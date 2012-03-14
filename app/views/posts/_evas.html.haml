@@ -1,0 +1,6 @@
+- if @post.respond_to? :evas
+  - @post.evas ||= [5, 5, 5]
+  %section#post-evas
+    = render 'shared/evas', evas: @post.evas
+    %span.edit_tips 滑动评分，点击确定
+  = hidden_field_tag :evas, @post.evas

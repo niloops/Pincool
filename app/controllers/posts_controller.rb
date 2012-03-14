@@ -37,11 +37,14 @@ class PostsController < ApplicationController
   end
 
   def save_post
-    @post.evas = [1,2,3] if @post.respond_to? :evas
-    
     @post.content = params[:content]
     @post.photos = [Photo.new(image: params[:photo])] if params[:photo]
-    @post.title = params[:title] if @post.respond_to? :title
+    if @post.respond_to? :title
+      @post.title = params[:title]
+    end
+    if @post.respond_to? :evas
+      @post.evas = params[:evas].split(/\s+/).map {|e| e.to_i}
+    end
     @post.save ? (redirect_to brand_post_path(@post.brand, @post)) : (render 'show')
   end
 

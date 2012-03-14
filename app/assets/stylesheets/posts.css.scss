@@ -63,7 +63,7 @@
 
       input {
          display: none;
-         width: 50%;
+         width: 80%;
          font-weight:bold;
          font-size: 1.7em;
          color: $site-aux-text-color;
@@ -71,6 +71,45 @@
          border-radius: 3px;
          padding: 5px;
       }
+   }
+
+   #post-evas {
+      ul.evaluation {
+         display: inline-block;
+         width: 68%;
+
+         li {
+            line-height: 50px;
+            margin-top: 5px;
+
+            .eva_name {
+               width: 14%;
+               margin-right: 5px;
+               font-size: 1.2em;
+            }
+
+            .eva_container {
+               position: relative;
+               width: 74%;
+               
+               .eva_point {
+                  position: absolute;
+                  left: 0;
+                  z-index: 1000;
+               }
+               .eva_rating {
+                  @include opacity(0.6);
+               }
+            }
+
+            .eva_display_points {
+               font-size: 1.2em;
+               margin-left: 1em;
+            }
+         }
+      }
+      
+      .edit_tips {vertical-align: middle;}
    }
 
    #post-photos {

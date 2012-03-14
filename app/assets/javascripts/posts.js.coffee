@@ -56,14 +56,29 @@ Pincool.postTexts =
             .show()
             .focus()
 
+Pincool.postEvas =
+  ready: ->
+    return if $('#post-evas').length == 0
+    Pincool.Evas.draw $('#post-evas'), true
+    Pincool.Evas.ratingReady $('#post-evas'), (index, point) ->
+      evas = $('#evas').val().split(/\s/)
+      evas[index] = point.toString()
+      $('#evas').val(evas.join(" "))
+
 Pincool.postForm = ->
   Pincool.postPhotos.ready()
   Pincool.postTexts.ready()
+  Pincool.postEvas.ready()
   $("form").submit ->
+
     if $('#title').length > 0 && !$('#title').val()
       $('#title')
         .after('<span>请您输入标题</span>')
         .next().addClass("error_message")
+
     unless $("#photo").val()
       $("#dropzone").addClass("fail").find('p').text("请您上传图片")
       return false
+
+Pincool.postShow = ->
+  Pincool.Evas.draw $('#post-evas'), true

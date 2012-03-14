@@ -1,5 +1,6 @@
 = form_tag brand_posts_path(@post.brand), method: :post do |f|
   = render 'title'
+  = render 'evas'
   = render 'photos'
   = render 'content'  
   = hidden_field_tag :type, @post.type

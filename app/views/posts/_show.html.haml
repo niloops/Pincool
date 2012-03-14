@@ -1,6 +1,9 @@
 - if @post.respond_to? :title
   %section#post-title
     %h1= @post.content
+- if @post.respond_to? :evas
+  %section#post-evas
+    = render 'shared/evas', evas: @post.evas
 %section#post-photos
   #imagezone    
     - photo = @post.photos.first
@@ -8,3 +11,6 @@
     image_url(:photo, photo.image, :origin)
 %section#post-content
   %p= @post.content
+- content_for :script do
+  :javascript
+    $(Pincool.postShow)
