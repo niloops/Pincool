@@ -20,6 +20,7 @@ class Review < Post
   private
 
   def add_evas_to_brand
+    return unless valid?
     evas.each_index do |index|
       brand.total_evas[index] += evas[index]
     end

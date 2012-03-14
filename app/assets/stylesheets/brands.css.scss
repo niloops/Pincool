@@ -22,7 +22,7 @@ body#brands {
 
          #follow_toggle {
             button {
-               @include button_style;
+               @include button-style;
                display: block;
                margin: 0 auto;
                padding-left: 18%;
@@ -120,6 +120,29 @@ body#brands {
             }
          }
       }
+   }
+
+   section.brand_publish {
+      @include clearfix;
+
+      > a {
+         @include button-style;
+         float: right;
+         margin: 0 1em;
+         width: 5em;
+         line-height: 3em;
+         padding-left: 3em;
+      }
+
+      > a.feeling_pub {
+         @include background(image-url("feeling_pub.png") no-repeat 1em center,
+               linear-gradient(#fff, #eee));
+      }
+      > a.review_pub {
+         @include background(image-url("review_pub.png") no-repeat 1em center,
+               linear-gradient(#fff, #eee));
+      }
+
    }
 
    section.brand_form {

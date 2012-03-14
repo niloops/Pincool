@@ -20,6 +20,9 @@
         %li= link_to "日用品", "#"
         %li= link_to "电器", "#"
         %li= link_to "音响", "#"
+  %section.brand_publish
+    = link_to "发布感受", new_brand_post_path(@brand)+"?type=feeling", "class" => "feeling_pub"
+    = link_to "发布评论", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"
 - content_for :script do
   :javascript
     $(Pincool.brandShow);
