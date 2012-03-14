@@ -6,15 +6,13 @@ class Brand
   field :uri, type: String
   field :logo, type: String
   field :description, type: String
+  field :total_evas, type: Array, default: [0, 0, 0]
   index :uri, unique: true
   index :created_at
 
   belongs_to :founder, class_name: 'User', index: true, inverse_of: :found_brands
   has_and_belongs_to_many :followers, class_name: 'User'
   has_many :posts, validate: false
-
-  validates :logo, presence: true
-  validates :description, presence: true
 
   validates_presence_of :founder
   validates_presence_of :title, message: "品牌名称不能为空" 
@@ -29,7 +27,7 @@ class Brand
   validates_length_of :description, within: 1..140, too_long: "简介最多只能输入%{count}个字"
 
   after_create :followed_by_founder
-  
+
   paginates_per 20
 
   class << self
@@ -48,6 +46,16 @@ class Brand
 
   def followed_by_founder
     founder.follow self
+  end
+
+  def reviews
+    Review.where(brand_id: id)
+  end
+
+  def evas
+    rc = reviews.count
+    return nil if rc <= 0 
+    total_evas.map {|eva| eva/rc}
   end
 
   def to_param

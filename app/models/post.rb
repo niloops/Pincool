@@ -16,7 +16,7 @@ class Post
   validates_presence_of :brand
   validates_presence_of :type
   validates_length_of :content, maximum: 65535
-  
+
   class << self
     def get_class(type)
       Kernel.const_get(type.capitalize)
@@ -26,4 +26,5 @@ class Post
   def edited_by?(edit_user)
     edit_user.admin? || author == edit_user 
   end
+
 end

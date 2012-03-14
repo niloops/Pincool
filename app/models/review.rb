@@ -15,4 +15,15 @@ class Review < Post
     end
   end
 
+  before_create :add_evas_to_brand
+
+  private
+
+  def add_evas_to_brand
+    evas.each_index do |index|
+      brand.total_evas[index] += evas[index]
+    end
+    brand.save
+  end
+
 end

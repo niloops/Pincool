@@ -42,4 +42,9 @@ describe Review do
     before {@review.evas = [0, 0, 0]}
     it {should_not be_valid}
   end
+
+  describe "evas added to brand" do
+    before {@review.save}
+    its(:evas) {should == brand.evas}
+  end
 end
