@@ -1,15 +1,14 @@
 Pincool.Evas =
-  draw: (container, is_point_displayed) ->
+  draw: (container, is_name_displayed, is_point_displayed) ->
     container = $(container) if typeof container == "string"
 
     container.find('ul.evaluation li').each ->
       data_name = $(this).attr("data-name")
-
       $('<span></span>')
         .addClass("eva_name")
         .text(data_name)
         .attr('title', $(this).attr("data-desc"))
-        .appendTo($(this)) if data_name
+        .appendTo($(this)) if data_name && is_name_displayed
 
       $eva_container = $('<span></span>')
         .addClass("eva_container")

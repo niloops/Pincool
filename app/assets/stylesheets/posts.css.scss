@@ -1,18 +1,24 @@
 @import "base";
 
 .author {
+   color: $site-aux-text-color;
+
    img {
       float: left;
       margin-right: 10px;
    }
 
-   > a {
-      display: block;
-   }
-
    time {
       color: $site-aux-text-color;
    }
+}
+
+@mixin triangle {
+   content: "";
+   display: block;
+   position: absolute;
+   width: 0;
+   height: 0;
 }
 
 #post_show {
@@ -33,13 +39,9 @@
    > *, > form > * {margin-bottom: 20px}
 
    &:after {
-      content: "";
-      display: block;
-      position: absolute;
+      @include triangle;
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
       border: {
          left: 20px solid transparent;
          bottom: 20px solid transparent;
@@ -91,7 +93,7 @@
             .eva_container {
                position: relative;
                width: 74%;
-               
+
                .eva_point {
                   position: absolute;
                   left: 0;
@@ -108,7 +110,7 @@
             }
          }
       }
-      
+
       .edit_tips {vertical-align: middle;}
    }
 
@@ -174,4 +176,87 @@
          margin-right: 2em;
       }
    }
+}
+
+#posts {
+   position: relative;
+   margin: 20px auto;
+
+   article.post {
+      position: absolute;
+      padding: 20px 20px 0;
+      line-height: 1.5;
+      border: 1px solid #ccc;
+      background:#f8f8f8;
+
+      &:hover{background: #fff;}
+
+      &:after {
+         @include triangle;
+         top: 0;
+         right: 0;
+         border-right: 20px solid white;
+         border-left: 20px solid transparent;
+         border-bottom: 20px solid transparent;
+      }
+
+      > section {
+         > * {margin: 10px 0;}
+
+         img {
+            margin-top: 0;
+            max-width: 100%;
+            @include transition(all 0.2s ease-out);
+            &:hover {@include opacity(0.9);}
+         }
+
+         h1 {
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #777;
+         }
+
+         ul.evaluation {
+            width: 100%;
+            margin-bottom: 2%;
+
+            > li {
+               float: left;
+               width: 100%;
+               margin-bottom: .5em;
+               .eva_container {width: 100%;}
+               .eva_points {height: 30px;}
+            }
+         }
+      }
+
+      > footer {
+         line-height: 1.4;
+         margin-bottom: 10px;
+      }
+   }
+
+   article.review:after {
+      border-right-color: #4694fd;
+   }
+   article.feeling:after {
+      border-right-color: #f7646a;
+   }
+
+   .posts_loading {
+      width: 100%;
+      height: 5em;
+      @include loading-small;
+   }
+}
+
+#gototop {
+   display: none;
+   position: fixed;
+   bottom: 5%;
+   right: 5%;
+   width: 50px;
+   height: 50px;
+   background: transparent url("goto_top.png") no-repeat center center;
+   cursor: pointer;
 }

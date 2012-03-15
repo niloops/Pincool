@@ -1,6 +1,6 @@
 - provide :title, @brand.title
 %section
-  %header.brand_head
+  %header#brand_head
     #title
       = logo_tag @brand, :big
       = render "follow_form"
@@ -20,9 +20,10 @@
         %li= link_to "日用品", "#"
         %li= link_to "电器", "#"
         %li= link_to "音响", "#"
-  %section.brand_publish
+  %section#brand_publish
     = link_to "发布感受", new_brand_post_path(@brand)+"?type=feeling", "class" => "feeling_pub"
     = link_to "发布评论", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"
+  %section#posts{"data-url" => brand_posts_path(@brand)}  
 - content_for :script do
   :javascript
     $(Pincool.brandShow);

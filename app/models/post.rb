@@ -17,6 +17,8 @@ class Post
   validates_presence_of :type
   validates_length_of :content, maximum: 65535
 
+  paginates_per 4
+
   class << self
     def get_class(type)
       Kernel.const_get(type.capitalize)

@@ -59,7 +59,7 @@ Pincool.postTexts =
 Pincool.postEvas =
   ready: ->
     return if $('#post-evas').length == 0
-    Pincool.Evas.draw $('#post-evas'), true
+    Pincool.Evas.draw $('#post-evas'), true, true
     Pincool.Evas.ratingReady $('#post-evas'), (index, point) ->
       evas = $('#evas').val().split(/\s/)
       evas[index] = point.toString()
@@ -81,4 +81,4 @@ Pincool.postForm = ->
       return false
 
 Pincool.postShow = ->
-  Pincool.Evas.draw $('#post-evas'), true
+  Pincool.Evas.draw $('#post-evas'), true, true

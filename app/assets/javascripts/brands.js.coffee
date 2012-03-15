@@ -18,5 +18,6 @@ Pincool.followToggle = ->
       if $form.find('button').hasClass('follow') then count-1 else count+1
 
 Pincool.brandShow = ->
-  Pincool.Evas.draw '.brand_head #info'
+  Pincool.Evas.draw '#brand_head #info', true
   Pincool.followToggle()
+  Pincool.Articles.init()

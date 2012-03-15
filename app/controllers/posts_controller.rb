@@ -20,6 +20,9 @@ class PostsController < ApplicationController
   end
 
   def index
+    brand = Brand.find_by_uri params[:brand_id]
+    @posts = brand.posts.desc(:created_at).page(params[:page])
+    render layout: false
   end
 
   def destroy
