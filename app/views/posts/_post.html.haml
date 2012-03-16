@@ -1,9 +1,11 @@
 %article{"class" => "post #{post.type.downcase}"}
   %section
     - if post.photos.length > 0
-      = photo_tag post.photos.first, :small
+      = link_to brand_post_path(post.brand, post) do
+        = photo_tag post.photos.first, :small
     - if post.respond_to? :title
-      %h1= post.title
+      = link_to brand_post_path(post.brand, post) do
+        %h1= post.title
     - if post.respond_to? :evas
       = render 'shared/evas', evas: post.evas
     - if !post.content.blank?    

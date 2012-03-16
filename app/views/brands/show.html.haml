@@ -23,7 +23,7 @@
   %section#brand_publish
     = link_to "发布感受", new_brand_post_path(@brand)+"?type=feeling", "class" => "feeling_pub"
     = link_to "发布评论", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"
-  %section#posts{"data-url" => brand_posts_path(@brand)}  
+  = render "posts/posts", posts_name: @brand.title+"的帖子", posts_url: brand_posts_path(@brand)
 - content_for :script do
   :javascript
     $(Pincool.brandShow);

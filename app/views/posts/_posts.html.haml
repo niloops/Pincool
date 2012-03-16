@@ -1,0 +1,8 @@
+%section#posts{"data-url" => posts_url}  
+  %header
+    %h1= posts_name
+    %nav
+      = link_to "所有", posts_url, "class" => "current"
+      = link_to "感受", posts_url+"?type=feeling"
+      = link_to "评论", posts_url+"?type=review"
+%aside#gototop(title="回到顶部")

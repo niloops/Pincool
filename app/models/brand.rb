@@ -52,6 +52,21 @@ class Brand
     Review.where(brand_id: id)
   end
 
+  def feelings
+    Feeling.where(brand_id: id)
+  end
+
+  def posts_by_type(type)
+    case type
+    when 'review'
+      reviews
+    when 'feeling'
+      feelings
+    else
+      posts
+    end
+  end
+
   def evas
     rc = reviews.count
     return nil if rc <= 0 

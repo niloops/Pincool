@@ -1,10 +1,6 @@
 @import "compass/css3";
 @import "reset";
 
-$site-width: 920px;
-$site-border-color: #ccc;
-$site-aux-text-color: #999;
-
 body, input, label, select, option, textarea, button, fieldset, legend {
    font: {
       family: "Hiragino Sans GB", "Microsoft Yahei", arial, sans-serif;
@@ -24,7 +20,6 @@ a {
 
    &:visited {
       color: $link_color;
-      outline: none;
    }
 }
 
@@ -71,6 +66,10 @@ body {
    zoom: 1;
 }
 
+$site-width: 920px;
+$site-border-color: #ccc;
+$site-aux-text-color: #999;
+
 @mixin inline-edit-input {
    border: none;
    outline: none;
@@ -95,6 +94,31 @@ body {
 
 @mixin loading-small {
    background: image-url("loader-small.gif") no-repeat center;
+}
+
+@mixin section-head {
+   display: inline-block;
+   font-size: 1.2em;
+   color: $site-aux-text-color;
+}
+
+@mixin section-nav {
+   display: inline-block;
+   padding-left: 5px;
+
+   a {
+      margin-right: 5px;
+      &:before {
+         content: "\00b7";
+         padding-right: 8px;
+         font-weight: normal;
+      }
+   }
+
+   .current {
+      color: $site-aux-text-color;
+      font-weight:bold;
+   }
 }
 
 button {
@@ -276,37 +300,11 @@ body.signed_in > section {
    @include box-shadow(0 1px 3px #999);
 
    > header {
-      position: relative;
       margin-bottom: 20px;
       border-bottom: 1px solid $site-border-color;
       padding-bottom: 20px;
-
-      > h1 {
-         display: inline-block;
-         margin: 0;
-         font-size: 1.2em;
-         color: $site-aux-text-color;
-      }
-
-      > nav {
-         display: inline-block;
-         padding-left: 5px;
-
-         a {
-            margin-right: 5px;
-
-            &:before {
-               content: "\00b7";
-               padding-right: 8px;
-               font-weight: normal;
-            }
-         }
-
-         .current {
-            color: $site-aux-text-color;
-            font-weight:bold;
-         }
-      }
+      > h1 {@include section-head;}
+      > nav {@include section-nav;}
    }
 }
 

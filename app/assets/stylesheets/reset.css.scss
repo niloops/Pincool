@@ -4,7 +4,7 @@ ul, ol {
    list-style: none;
 }
 
-p {margin: 0;}
+h1, p {margin: 0;}
 
 button, input {
    padding: 0;
@@ -42,4 +42,10 @@ textarea {
 
 :visited {
    outline: none;
+}
+
+a {
+   &:focus {outline: none}
+   &:active {outline: none}
+   &:visited {outline: none}
 }

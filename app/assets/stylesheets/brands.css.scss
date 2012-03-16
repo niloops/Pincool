@@ -123,6 +123,8 @@ body#brands {
    }
 
    section#brand_publish {
+      position: relative;
+      top: -5px;
       @include clearfix;
 
       > a {
@@ -130,7 +132,7 @@ body#brands {
          float: right;
          margin: 0 1em;
          width: 5em;
-         line-height: 3em;
+         line-height: 28px;
          padding-left: 3em;
       }
 
@@ -142,7 +144,10 @@ body#brands {
          @include background(image-url("review_pub.png") no-repeat 1em center,
                linear-gradient(#fff, #eee));
       }
+   }
 
+   section#posts {
+      margin-top: -30px;
    }
 
    section.brand_form {

@@ -1,83 +1,88 @@
 Pincool.Articles =
   container: '#posts',
-  url: "",
-  page: 1,
-  end: false,
-  columns_height: [0, 0, 0],
-  loading: false,
-  goingtotop: false,
   width: 254,
   padding: 20,
   margin: 20
 
-  init: ->
-    this.url = $(this.container).attr('data-url')
-    this.hangGototop()
+  init: (url) ->
+    @url = url || $(@container).attr('data-url')
+    @page = 1
+    @end = false
+    @loading = false
+    @goingtotop = false
+    @columns_height = [0, 0, 0]
+    for height, i in @columns_height
+      @columns_height[i] = $(@container).find('> header').outerHeight(true)
+
+    $(@container).find('> article').remove()
+    this.bindGototop()
     this.bindScroll()
+    this.bindNav()
     this.load()
 
-  hangGototop: ->
-    $('<aside id="gototop" title="回到顶部"></aside>')
-      .insertAfter(this.container)
-      .click =>
-        this.goingtotop = true
-        $('#gototop').fadeOut()
-        $('html,body').animate {scrollTop: 0}, 'slow', =>
-          this.goingtotop = false
+  bindGototop: ->
+    $('#gototop').off().click =>
+      @goingtotop = true
+      $('#gototop').fadeOut()
+      $('html,body').animate {scrollTop: 0}, 'slow', =>
+        @goingtotop = false
 
   checkGototop: ->
-    return if this.goingtotop
+    return if @goingtotop
     if $(window).scrollTop() > $(window).height()/2
         $('#gototop').fadeIn() if $('#gototop').is(':hidden')
     else
         $('#gototop').fadeOut() if $('#gototop').is(':visible')
 
   bindScroll: ->
-    $(window).scroll =>
+    $(window).off('scroll.posts').on 'scroll.posts', =>
       if $('body')[0].scrollHeight - $(window).height() - $(window).scrollTop() <= 100
         this.load()
       this.checkGototop()
 
-  choiceColumn: ->
-    this.columns_height.indexOf(Math.min this.columns_height...)
-
-  addColumnHeight: (column, height) ->
-    this.columns_height[column] += height
-    $(this.container).height(Math.max this.columns_height...)
+  bindNav: ->
+    _this = this
+    $(@container).find('> header nav a').off().click (e) ->
+      _this.init $(this).attr('href')
+      $(this).parent().children().removeClass('current')
+      $(this).addClass('current')
+      e.preventDefault()
 
   load: ->
-    return if this.loading || this.end
-    this.loading = true
+    return if @loading || @end
+    @loading = true
     $('<div></div>')
       .addClass('posts_loading')
-      .appendTo($(this.container))
+      .appendTo($(@container))
 
     $.ajax
       type: "get",
-      url: this.url+"?page="+this.page,
+      url: @url,
+      data: {page: @page},
       complete: =>
-        this.loading = false
-        $(this.container).remove('.posts_loading')
+        @loading = false
+        $(@container).find('.posts_loading').remove()
       success: (result) =>
         if result.trim() == ""
-          return this.end = true
+          return @end = true
         $(result).filter("article").each (index, article) =>
-          $(article).find("section > img").load =>
+          $(article).find("section img").load =>
             this.show article
-        this.page++
+        @page++
 
   show: (article) ->
-    column = this.choiceColumn()
-    height = this.columns_height[column]
+    column = @columns_height.indexOf(Math.min @columns_height...)
+    height = @columns_height[column]
     $(article).css(
-      width: this.width
-      left: column * (this.margin+this.width+2*this.padding),
+      width: @width
+      left: column * (@margin+@width+2*@padding),
       top: height
     )
     .data('column', column)
     .hide()
-    .appendTo($(this.container))
+    .appendTo($(@container))
     .fadeIn()
 
     Pincool.Evas.draw $(article)
-    this.addColumnHeight(column, $(article).outerHeight() + this.margin)
+    @columns_height[column] += $(article).outerHeight() + @margin
+    $(@container).height(Math.max @columns_height...)

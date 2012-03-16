@@ -182,6 +182,12 @@
    position: relative;
    margin: 20px auto;
 
+   > header {
+      margin-bottom: 20px;
+      > h1 {@include section-head;}
+      > nav {@include section-nav;}
+   }
+
    article.post {
       position: absolute;
       padding: 20px 20px 0;
@@ -201,10 +207,9 @@
       }
 
       > section {
-         > * {margin: 10px 0;}
+         img, h1, ul, p {margin-bottom: 10px;}
 
          img {
-            margin-top: 0;
             max-width: 100%;
             @include transition(all 0.2s ease-out);
             &:hover {@include opacity(0.9);}
@@ -218,10 +223,8 @@
 
          ul.evaluation {
             width: 100%;
-            margin-bottom: 2%;
 
             > li {
-               float: left;
                width: 100%;
                margin-bottom: .5em;
                .eva_container {width: 100%;}
