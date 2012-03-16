@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def index
     brand = Brand.find_by_uri params[:brand_id]
-    @posts = brand.posts_by_type(params[:type]).desc(:created_at).page(params[:page])
+    @posts = brand.posts.by_type(params[:type]).page(params[:page])
     render layout: false
   end
 

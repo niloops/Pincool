@@ -10,3 +10,6 @@ Pincool.userShow = ->
       $content_area.removeClass("loading_small")
         .html(data)
   $links.first().trigger('click')
+
+Pincool.home = ->
+  Pincool.Articles.init()

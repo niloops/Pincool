@@ -1,0 +1,6 @@
+- provide :title, "我感兴趣的"
+%section
+  = render "posts/posts", posts_name: "我感兴趣的", posts_url: follow_posts_data_path
+- content_for :script do
+  :javascript
+    $(Pincool.home);

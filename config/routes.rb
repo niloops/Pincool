@@ -14,10 +14,14 @@ Pincool::Application.routes.draw do
     member do
       get "followings"
       get "found_brands"
+      get "pub_posts"
+      get "pub_posts_data"
     end
   end
   
   match "/home", to: "users#home"
+  match "/follow_posts_data", to: "users#follow_posts_data",
+  as: "follow_posts_data"
 
   resources :brands do
     member do

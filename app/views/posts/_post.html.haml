@@ -11,4 +11,4 @@
     - if !post.content.blank?    
       %p= post.content.truncate(1000)
   %footer
-    = render 'author', post: post
+    = render 'posts/author', post: post

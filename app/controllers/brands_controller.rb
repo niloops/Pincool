@@ -26,7 +26,7 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @brands = Brand.desc(:created_at).page params[:page]
+    @brands = Brand.page params[:page]
   end
 
   def follow_toggle

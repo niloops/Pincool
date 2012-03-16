@@ -1,0 +1,4 @@
+%section
+  = render "posts/posts", posts_name: "我发布的", posts_url: pub_posts_data_user_path(@user)
+:javascript
+  $(function(){Pincool.Articles.init()});

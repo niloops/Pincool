@@ -10,6 +10,8 @@
       followings_user_path(@user), remote: true
       = link_to "创建了#{@user.found_brands.count}个品牌", 
       found_brands_user_path(@user), remote: true
+      = link_to "发布了#{@user.posts.count}个帖子", 
+      pub_posts_user_path(@user), remote: true
   %section.person_content
   - content_for :script do
     :javascript

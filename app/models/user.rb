@@ -69,6 +69,10 @@ class User
     brand.followers.delete self
   end
 
+  def follow_posts
+    Post.any_in(brand_id: following_ids)
+  end
+
   private
 
   def create_token

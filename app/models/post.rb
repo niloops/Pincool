@@ -17,7 +17,13 @@ class Post
   validates_presence_of :type
   validates_length_of :content, maximum: 65535
 
-  paginates_per 4
+  paginates_per 5
+
+  default_scope desc(:created_at)
+
+  scope :by_type, ->(type) do
+    type ? where(_type: type.capitalize) : scoped
+  end
 
   class << self
     def get_class(type)

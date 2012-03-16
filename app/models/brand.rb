@@ -12,7 +12,7 @@ class Brand
 
   belongs_to :founder, class_name: 'User', index: true, inverse_of: :found_brands
   has_and_belongs_to_many :followers, class_name: 'User'
-  has_many :posts, order: [:created_at, :desc], validate: false
+  has_many :posts, validate: false
 
   validates_presence_of :founder
   validates_presence_of :title, message: "品牌名称不能为空" 
@@ -29,6 +29,8 @@ class Brand
   after_create :followed_by_founder
 
   paginates_per 20
+
+  default_scope desc(:created_at)
 
   class << self
     def find_by_uri(uri)
@@ -49,22 +51,11 @@ class Brand
   end
 
   def reviews
-    Review.where(brand_id: id)
+    posts.by_type("review")
   end
 
   def feelings
-    Feeling.where(brand_id: id)
-  end
-
-  def posts_by_type(type)
-    case type
-    when 'review'
-      reviews
-    when 'feeling'
-      feelings
-    else
-      posts
-    end
+    posts.by_type("feeling")
   end
 
   def evas
