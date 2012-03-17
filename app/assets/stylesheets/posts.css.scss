@@ -178,7 +178,7 @@
    }
 }
 
-#posts {
+#articles {
    position: relative;
    margin: 0 auto;
 
@@ -262,4 +262,12 @@
    height: 50px;
    background: transparent url("goto_top.png") no-repeat center center;
    cursor: pointer;
+}
+
+#explore > #articles > header {
+   background-color: #ffc;
+   border-bottom: 1px solid #CCCCCC;
+   text-align: center;
+   line-height: 40px;
+   margin: -20px -20px 40px;
 }

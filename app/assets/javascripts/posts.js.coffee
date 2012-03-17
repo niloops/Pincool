@@ -82,3 +82,6 @@ Pincool.postForm = ->
 
 Pincool.postShow = ->
   Pincool.Evas.draw $('#post-evas'), true, true
+
+Pincool.postsIndex = ->
+  Pincool.Articles.init()

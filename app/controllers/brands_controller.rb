@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create, :show]
+  before_filter :signed_in_user, only: [:new, :create, :show, :posts_data]
   before_filter :author, only: [:edit, :update]
   before_filter :admin_user, only: [:index]
 
@@ -38,6 +38,12 @@ class BrandsController < ApplicationController
       current_user.follow @brand
       render "_unfollow_button", layout: false
     end
+  end
+
+  def posts_data
+    brand = Brand.find_by_uri params[:id]
+    @posts = brand.posts.by_type(params[:type]).page(params[:page])
+    render 'shared/posts', layout: false
   end
 
   private

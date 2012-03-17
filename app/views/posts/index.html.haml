@@ -1,1 +1,6 @@
-= render partial: "posts/post", collection: @posts, as: :post
+- provide :title, "探索发现"
+%section#explore
+  = render "posts/posts", posts_name: "探索发现", posts_url: explore_data_path
+- content_for :script do
+  :javascript
+    $(Pincool.postsIndex);

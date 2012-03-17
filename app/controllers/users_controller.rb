@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def follow_posts_data
     @posts = current_user.follow_posts.by_type(params[:type]).page(params[:page])
-    render 'posts/index', layout: false
+    render 'shared/posts', layout: false
   end
 
   def show
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   def pub_posts_data
     @user = User.find(params[:id])
     @posts = @user.posts.by_type(params[:type]).page(params[:page])
-    render 'posts/index', layout: false
+    render 'shared/posts', layout: false
   end
 end

@@ -1,5 +1,5 @@
 Pincool.Articles =
-  container: '#posts',
+  container: '#articles',
   width: 254,
   padding: 20,
   margin: 20

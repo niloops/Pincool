@@ -20,9 +20,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    brand = Brand.find_by_uri params[:brand_id]
-    @posts = brand.posts.by_type(params[:type]).page(params[:page])
-    render layout: false
+  end
+
+  def index_data
+    @posts = Post.by_type(params[:type]).page(params[:page])
+    render 'shared/posts', layout: false
   end
 
   def destroy

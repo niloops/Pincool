@@ -26,9 +26,12 @@ Pincool::Application.routes.draw do
   resources :brands do
     member do
       post "follow_toggle"
+      get "posts_data"
     end
-    resources :posts 
+    resources :posts, except: [:index]
   end
+  get "/explore", to: "posts#index"
+  get "/explore_data", to: "posts#index_data"
 
   resources :invited_users, only: [:new, :create, :index, :destroy]
   # The priority is based upon order of creation:
