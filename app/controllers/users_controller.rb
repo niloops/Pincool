@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_filter :signed_in_user
   
   def home
+    if current_user.followings.blank?
+      @categories = Category.limit(10)
+      render 'recommends'
+    end
   end
 
   def follow_posts_data

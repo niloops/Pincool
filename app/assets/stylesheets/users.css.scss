@@ -10,4 +10,27 @@ body#users {
       height: 100px;
       @include loading-small;
    }
+
+   #recommends {
+      .categories_list > li {
+         .category {
+            border: none;
+         }
+
+         .brands_normal {
+            @include clearfix;
+            margin: 20px;
+
+            .brand {
+               float: left;
+               width: 160px;
+               padding: 5px;
+
+               form#follow_toggle {
+                  margin-top: 20px;
+               }
+            }
+         }
+      }
+   }
 }
