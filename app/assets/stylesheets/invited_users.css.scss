@@ -2,18 +2,7 @@
 
 body#invited_users {
    form {
-      label {
-         font-size: 1.2em;
-      }
-      .field {
-         line-height: 2em;
-      }
-      .action {
-         line-height: 3em;
-         input {
-            width: 4em;
-         }
-      }
+      @include admin-form;
    }
 
    section > table {
@@ -30,9 +19,6 @@ body#invited_users {
    }
 
    section > #new_invited_user_link {
-      text-align: right;
-      margin-top: 2em;
-      margin-right: 10%;
-      font-size: 1.4em;
+      @include admin-new;
    }
 }

@@ -30,10 +30,17 @@ Pincool::Application.routes.draw do
     end
     resources :posts, except: [:index]
   end
-  get "/explore", to: "posts#index"
-  get "/explore_data", to: "posts#index_data"
+  get "explore", to: "posts#index"
+  get "explore_data", to: "posts#index_data"
 
   resources :invited_users, only: [:new, :create, :index, :destroy]
+
+  resources :categories do
+    collection do
+      get "index_for_admin"
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

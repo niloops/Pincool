@@ -7,7 +7,7 @@
       %li= link_to "我的主页", root_path
       %li= link_to "我的品牌", user_path(current_user)
       %li= link_to "探索发现", explore_path
-      %li= link_to "品控领域", '#'
+      %li= link_to "品控领域", categories_path
     #current_user
       = link_to current_user do
         = image_tag current_user.image_url, class: "people_thumb_small", 
@@ -15,4 +15,8 @@
         %strong= current_user.name
       %ul
         %li= link_to "建立新品牌", new_brand_path
+        - if current_user.admin?
+          %li= link_to "*邀请用户管理", invited_users_path
+          %li= link_to "*品牌管理", brands_path
+          %li= link_to "*领域管理", index_for_admin_categories_path
         %li= link_to "退出", signout_path, method: :delete

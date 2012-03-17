@@ -1,0 +1,10 @@
+- provide :title, '领域'
+%section
+  %header
+    %h1 领域
+  %section
+    %ul.categories_list
+      = render @categories
+- content_for :script do
+  :javascript
+    $(Pincool.categoriesIndex);

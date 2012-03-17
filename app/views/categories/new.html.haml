@@ -1,0 +1,9 @@
+%section
+  %header
+    %h1 新建领域
+  = form_for(@category) do |f| 
+    .field
+      = f.label :name, "领域名称"
+      = f.text_field :name, size:15
+    .action  
+      = f.submit "提交"

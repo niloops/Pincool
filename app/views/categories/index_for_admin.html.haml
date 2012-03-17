@@ -1,0 +1,17 @@
+%section
+  %header
+    %h1 领域列表
+  %table
+    %tr
+      %th= "领域名称"
+      %th= "创建用户"
+      %th= "操作"
+      %th= "操作"
+    - @categories.each do |category|
+      %tr
+        %td= link_to category.name, category
+        %td= link_to category.founder.name, category.founder
+        %td= link_to "修改", edit_category_path(category)
+        %td= link_to "删除", category, method: :delete, confirm: "确定?"
+  #new_category_link
+    = link_to "新建领域", new_category_path

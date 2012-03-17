@@ -13,6 +13,7 @@ class Brand
   belongs_to :founder, class_name: 'User', index: true, inverse_of: :found_brands
   has_and_belongs_to_many :followers, class_name: 'User'
   has_many :posts, validate: false
+  has_and_belongs_to_many :categories
 
   validates_presence_of :founder
   validates_presence_of :title, message: "品牌名称不能为空" 
@@ -60,7 +61,7 @@ class Brand
 
   def evas
     rc = reviews.count
-    return nil if rc <= 0 
+    return [0, 0, 0] if rc <= 0 
     total_evas.map {|eva| eva/rc}
   end
 

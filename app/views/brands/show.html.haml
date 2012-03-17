@@ -16,10 +16,8 @@
     #tags
       %h2 领域
       %ul
-        %li= link_to "跑车", "#"
-        %li= link_to "日用品", "#"
-        %li= link_to "电器", "#"
-        %li= link_to "音响", "#"
+        - @brand.categories.each do |category|
+          %li= link_to category.name, category
   %section#brand_publish
     = link_to "发布感受", new_brand_post_path(@brand)+"?type=feeling", "class" => "feeling_pub"
     = link_to "发布评论", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"

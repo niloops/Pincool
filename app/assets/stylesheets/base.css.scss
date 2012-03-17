@@ -121,6 +121,31 @@ $site-aux-text-color: #999;
    }
 }
 
+@mixin admin-form {
+   label {
+      font-size: 1.2em;
+   }
+   .field {
+      line-height: 2em;
+   }
+   .action {
+      line-height: 3em;
+      input {
+         width: 4em;
+      }
+   }
+   label.message {
+      color: red;
+   }
+}
+
+@mixin admin-new {
+   text-align: right;
+   margin-top: 2em;
+   margin-right: 10%;
+   font-size: 1.4em;
+}
+
 button {
    @include button-style;
    margin: 0 5px;
