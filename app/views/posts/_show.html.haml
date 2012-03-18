@@ -10,7 +10,7 @@
     = link_to photo_tag(photo, :big), 
     image_url(:photo, photo.image, :origin)
 %section#post-content
-  %p= @post.content
+  %pre= @post.content
 - content_for :script do
   :javascript
     $(Pincool.postShow)

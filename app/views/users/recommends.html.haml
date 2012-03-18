@@ -10,8 +10,4 @@
             %h2= link_to category.name, category
             %p= link_to category_brands_tag(category), category
           %ul.brands_normal
-            - category.brands.limit(5).each do |brand|
-              %li.brand
-                = link_to logo_tag(brand, :small), brand_path(brand), class: 'brand_logo'  
-                = link_to brand.title, brand_path(brand), class: 'brand_title'
-                %p= brand.description.truncate(10)
+            = render category.brands.limit(5)

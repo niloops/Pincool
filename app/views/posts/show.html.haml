@@ -1,7 +1,10 @@
 - provide :title, @post.brand.title
 %section#post_show{class: @post.type.downcase}
   %header.brands_normal
-    = render @post.brand
+    .brand
+      = link_to logo_tag(@post.brand, :small), brand_path(@post.brand), class: 'brand_logo'  
+      = link_to @post.brand.title, brand_path(@post.brand), class: 'brand_title'
+      %p= @post.brand.description
   - if current_user?(@post.author)
     = (@post.new?) ? (render 'new') : (render 'edit')
   - else
