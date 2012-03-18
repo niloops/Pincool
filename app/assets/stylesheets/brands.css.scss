@@ -181,6 +181,19 @@ body#brands {
          .prefix+.field_with_errors {
             display: inline;
          }
+         
+         select {
+            width: 30%;
+         }
+
+         #brand_category_ids_chzn {
+            .chzn-choices {
+               input[type="text"] {
+                  font-size: 1em;
+                  height: 1em;
+               }
+            }
+         }
       }
 
       .action {

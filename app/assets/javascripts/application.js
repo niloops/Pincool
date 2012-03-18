@@ -11,5 +11,6 @@
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
+//= require chosen.jquery.js
 //= require base
 //= require_tree .

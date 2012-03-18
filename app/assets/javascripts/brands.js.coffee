@@ -4,6 +4,9 @@ Pincool.brandForm = ->
       .replace("/stub_path", logo_url)
     $('#dropzone').prepend("<img src='#{img_src}'>")
     $('#brand_logo').val(logo_url)
+  $('#brand_category_ids').chosen
+    no_results_text: "没有匹配的结果"
+
   $("form").submit ->
     unless $("#brand_logo").val()
       $("#dropzone").addClass("fail").find('p').text("请您上传logo图片")
