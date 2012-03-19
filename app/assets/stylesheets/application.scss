@@ -479,6 +479,10 @@ ul.evaluation {
          .eva_points_transition {
             @include transition(width 1s ease 0s, opacity 0.22s ease-out 0s);
          }
+
+         .eva_rating_transition {
+            @include transition(width 0.4s ease 0s, opacity 0.22s ease-out 0s);
+         }
       }
    }
 
