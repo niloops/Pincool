@@ -477,7 +477,7 @@ ul.evaluation {
          }
 
          .eva_points_transition {
-            @include site-transition;
+            @include transition(width 1s ease 0s, opacity 0.22s ease-out 0s);
          }
       }
    }

@@ -44,7 +44,7 @@ Pincool.Evas =
       $eva_display_points = $(this).find(".eva_display_points")
       $eva_display_points.data('display_point', origin_point+'/'+max)
       $eva_points = $eva_container.find(".eva_points")
-        .removeClass("eva_points_transition")
+        # .removeClass("eva_points_transition")
       $eva_points.data('point', origin_point)
 
       max = +$(this).attr("data-max")
