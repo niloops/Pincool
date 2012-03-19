@@ -105,3 +105,7 @@ $site-aux-text-color: #999;
    margin-right: 10%;
    font-size: 1.4em;
 }
+
+@mixin site-transition {
+   @include transition(width 1s, opacity 0.22s ease-out);
+}

@@ -105,6 +105,7 @@
          color: $site-aux-text-color;
          img {
             max-width: $width - 10px;
+            @include site-transition;
             &:hover {@include opacity(0.9);}
          }
       }

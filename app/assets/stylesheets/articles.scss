@@ -33,7 +33,7 @@
 
          img {
             max-width: 100%;
-            @include transition(all 0.2s ease-out);
+            @include site-transition;
             &:hover {@include opacity(0.9);}
          }
 
