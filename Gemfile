@@ -16,9 +16,6 @@ gem 'omniauth'
 gem 'omniauth-weibo'
 gem 'omniauth-douban'
 gem 'carrierwave'
-gem 'carrierwave-mongoid'
-gem 'carrierwave-upyun'
-gem 'mini_magick'
 gem 'capistrano'
 
 group :assets do

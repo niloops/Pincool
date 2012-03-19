@@ -1,8 +1,4 @@
 Pincool::Application.routes.draw do
-  get "demos/upyun"
-  get "demos/upyun_redirect"
-  post "demos/upyun_stub"
-
   root to: 'static_pages#signup'
   match "/signin/:provider/:name", to: 'static_pages#signup'
   get "/upyun_redirect", to: 'static_pages#upyun_redirect'
