@@ -6,11 +6,11 @@ Pincool.brandForm = ->
     $('#brand_logo').val(logo_url)
   $('#brand_category_ids').chosen
     no_results_text: "没有匹配的结果"
-
   $("form").submit ->
     unless $("#brand_logo").val()
       $("#dropzone").addClass("fail").find('p').text("请您上传logo图片")
       false
+  Pincool.cancelReady()
 
 Pincool.followToggle = ->
   $form = $("#follow_toggle")

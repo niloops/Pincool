@@ -69,6 +69,7 @@ Pincool.postForm = ->
   Pincool.postPhotos.ready()
   Pincool.postTexts.ready()
   Pincool.postEvas.ready()
+  Pincool.cancelReady()
   $("form").submit ->
 
     if $('#title').length > 0 && !$('#title').val()

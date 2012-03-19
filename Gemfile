@@ -1,6 +1,7 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails'
+gem 'rails-i18n'
 # ReplSetConnection seed format is now array of 'host:port' strings, show warnings in production env
 gem 'mongo', '1.5.2'  
 gem 'bson'
