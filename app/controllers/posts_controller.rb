@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     if @post.respond_to? :evas
       @post.evas = params[:evas].split(/\s+/).map {|e| e.to_i}
     end
-    @post.save ? (redirect_to brand_post_path(@post.brand, @post)) : (render 'show')
+    @post.save ? (redirect_to brand_path(@post.brand)) : (render 'show')
   end
 
   def author
