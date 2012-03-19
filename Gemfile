@@ -1,29 +1,29 @@
 source 'http://ruby.taobao.org'
 
-gem 'rails'
-gem 'rails-i18n'
-# ReplSetConnection seed format is now array of 'host:port' strings, show warnings in production env
+gem 'rails', '3.2.2'
+gem 'rails-i18n', '0.5.2'
+# ReplSetConnection seed format is now array of 'host:port' strings
+# It will show warnings in production env, so locks mongo at 1.5.2
 gem 'mongo', '1.5.2'  
-gem 'bson'
-gem 'bson_ext'
-gem 'mongoid'
-gem 'haml-rails'
-gem 'jquery-rails'
-gem 'jbuilder'
-gem 'kaminari'
-gem 'client_side_validations', '~> 3.2.0.beta.1'
+gem 'bson_ext', '1.5.2'
+gem 'mongoid', '2.4.6'
+gem 'haml-rails', '0.3.4'
+gem 'jquery-rails', '2.0.1'
+gem 'jbuilder', '0.3.2'
+gem 'kaminari', '0.13.0'
+gem 'client_side_validations'
 gem 'client_side_validations-mongoid'
-gem 'omniauth'
+gem 'omniauth', '1.0.3'
 gem 'omniauth-weibo'
 gem 'omniauth-douban'
 gem 'carrierwave'
-gem 'capistrano'
+gem 'capistrano', '2.11.2'
 
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'compass-rails'
+  gem 'sass-rails', '3.2.5'
+  gem 'coffee-rails', '3.2.2'
+  gem 'uglifier', '1.2.3'
+  gem 'compass-rails', '1.0.1'
 end
 
 group :test do
