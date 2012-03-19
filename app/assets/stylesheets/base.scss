@@ -37,6 +37,13 @@ $site-aux-text-color: #999;
    }
 }
 
+@mixin blue-button-style {
+   @include button-style;
+   @include background(linear-gradient(#66ccff, #09f));
+   border: 1px solid #09f;
+   color: #fff;
+}
+
 @mixin loading-small {
    background: image-url("loader-small.gif") no-repeat center;
 }

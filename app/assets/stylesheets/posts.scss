@@ -105,8 +105,6 @@
          color: $site-aux-text-color;
          img {
             max-width: $width - 10px;
-            border: 5px solid #fff;
-            @include box-shadow(0 1px 5px #666);
             &:hover {@include opacity(0.9);}
          }
       }
@@ -147,6 +145,7 @@
    .action {
       text-align: right;
       > * {vertical-align: bottom;}
+      button[type="submit"] {@include blue-button-style;}
    }
 
    footer {
