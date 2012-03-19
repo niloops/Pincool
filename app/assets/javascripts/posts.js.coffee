@@ -49,10 +49,8 @@ Pincool.postTexts =
         .hover ->
           $(this).toggleClass("inline_editing")
         .click ->
-          contents = $.trim($(this).text())
           $(this).hide().next().hide()
           $(element)
-            .val(contents)
             .show()
             .focus()
 

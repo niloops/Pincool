@@ -9,6 +9,6 @@
     - if post.respond_to? :evas
       = render 'shared/evas', evas: post.evas
     - if !post.content.blank?    
-      %pre= post.content.truncate(1000)
+      %p= nl2br post.content.truncate(1000)
   %footer
     = render 'posts/author', post: post

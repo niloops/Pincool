@@ -62,7 +62,7 @@ module Pincool
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    # Precompile individual modernize_respond 
+    # Precompile individual 
     config.assets.precompile += ['ga.js']
 
     config.autoload_paths << "#{Rails.root}/lib"

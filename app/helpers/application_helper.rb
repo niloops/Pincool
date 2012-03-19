@@ -13,4 +13,8 @@ module ApplicationHelper
     require 'upyun'
     UpYun.new(type).url(path, thumb)
   end
+
+  def nl2br(html)
+    raw(h(html).gsub(/[(\n)(\r)]/, "\n" => "<br/>", "\r" => "" ))
+  end
 end

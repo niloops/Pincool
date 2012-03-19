@@ -1,6 +1,6 @@
 - if @post.respond_to? :title
   %section#post-title
-    %h1= @post.content
+    %h1= @post.title
 - if @post.respond_to? :evas
   %section#post-evas
     = render 'shared/evas', evas: @post.evas
@@ -10,7 +10,7 @@
     = link_to photo_tag(photo, :big), 
     image_url(:photo, photo.image, :origin)
 %section#post-content
-  %pre= @post.content
+  %p= nl2br @post.content
 - content_for :script do
   :javascript
     $(Pincool.postShow)

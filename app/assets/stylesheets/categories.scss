@@ -1,0 +1,12 @@
+@import "base";
+
+body#categories {
+   form {
+      @include admin-form;
+   }
+
+   #new_category_link {
+      @include admin-new;
+   }
+}
+

@@ -1,5 +1,76 @@
-@import "compass/css3";
-@import "reset";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require h5bp.3.0.2
+ *= require chosen
+ *= require_self
+ *= require_tree .
+*/
+
+@import "base";
+
+/* reset */
+
+ul, ol {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+h1, p {margin: 0;}
+
+button, input {
+   padding: 0;
+
+   &:active {
+      outline: none;
+   }
+}
+
+dl, dt, dd {
+   margin: 0;
+}
+
+input[type="search"] {
+   -webkit-appearance: none;
+}
+
+input:focus {
+   outline: none;
+   -webkit-appearance: none;
+}
+
+textarea {
+   padding: 0;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+:required {
+   outline: none;
+   box-shadow: none;
+}
+
+:visited {
+   outline: none;
+}
+
+a {
+   &:focus {outline: none}
+   &:active {outline: none}
+   &:visited {outline: none}
+}
+
+/* base styles */
 
 body, input, label, select, option, textarea, button, fieldset, legend {
    font: {
@@ -55,97 +126,6 @@ body {
 /*    height: 80px; */
 /* } */
 
-@mixin clearfix {
-   &:before, &:after {
-      content: "";
-      display: table;
-   }
-   &:after {
-      clear: both;
-   }
-   zoom: 1;
-}
-
-$site-width: 920px;
-$site-border-color: #ccc;
-$site-aux-text-color: #999;
-
-@mixin inline-edit-input {
-   border: none;
-   outline: none;
-   background-color: #ffc;
-}
-
-@mixin button-style {
-   border: 1px solid #ccc;
-   color: $site-aux-text-color;
-   @include background(linear-gradient(#fff, #ddd));
-   @include border-radius(3px);
-
-   &:hover {
-      font-weight:bold;
-      @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.25), 0 0 3px #FFFFFF inset);
-   }
-
-   &:active {
-      @include box-shadow(0 1px 2px #AAAAAA inset);
-   }
-}
-
-@mixin loading-small {
-   background: image-url("loader-small.gif") no-repeat center;
-}
-
-@mixin section-head {
-   display: inline-block;
-   font-size: 1.2em;
-   color: $site-aux-text-color;
-}
-
-@mixin section-nav {
-   display: inline-block;
-   padding-left: 5px;
-
-   a {
-      margin-right: 5px;
-      &:before {
-         content: "\00b7";
-         padding-right: 8px;
-         font-weight: normal;
-      }
-   }
-
-   .current {
-      color: $site-aux-text-color;
-      font-weight:bold;
-   }
-}
-
-@mixin admin-form {
-   label {
-      font-size: 1.2em;
-   }
-   .field {
-      line-height: 2em;
-   }
-   .action {
-      line-height: 3em;
-      input {
-         width: 4em;
-      }
-   }
-   label.message {
-      color: red;
-   }
-}
-
-@mixin admin-new {
-   text-align: right;
-   margin-top: 2em;
-   margin-right: 10%;
-   font-size: 1.4em;
-}
-
 button {
    @include button-style;
    margin: 0 5px;
@@ -193,6 +173,141 @@ nav.pagination {
    color: $site-aux-text-color;
    padding: 3px;
    vertical-align: 5px;
+}
+
+.author {
+   color: $site-aux-text-color;
+
+   img {
+      float: left;
+      margin-right: 10px;
+   }
+
+   time {
+      color: $site-aux-text-color;
+   }
+}
+
+.brands_list {
+   @include clearfix;
+
+   .brand {
+      float: left;
+      margin: 0 5px 20px;
+      text-align: center;
+
+      .brand_logo {
+         position: relative;
+         display: block;
+         margin: 0 auto;
+         border: 1px solid #eee;
+         padding: 20px 0;
+         width: 140px;
+         height: 40px;
+         @include border-radius(3px);
+
+         &:hover {
+            border-color: #ccc;
+            @include background(linear-gradient(#fff, #eee));
+         }
+
+         &:active {
+            @include box-shadow(inset 0 0 3px rgba(153,153,153,0.8));
+            @include background(#f7f7f7);
+         }
+      }
+
+      .brand_title {
+         display: block;
+         margin-top: 10px;
+      }
+
+      p {
+         margin: 5px 0;
+         color: $site-aux-text-color;
+      }
+
+      ul.evaluation {
+         padding: 0 10%;
+         text-align: left;
+
+         li {
+            line-height: 3px;
+            .eva_container {
+               width: 100%;
+               line-height: 7px;
+               font-size: 0;
+               background-color: transparent;
+            }
+         }
+      }
+
+   }
+}
+
+.brands_normal {
+   .brand {
+      padding: 5px;
+      overflow: hidden;
+
+      img {
+         float: left;
+         margin-right: 10px;
+      }
+
+      .brand_title {
+         display: block;
+         padding-top: 8px;
+         font-size: 1em;
+      }
+
+      p {
+         padding-top: 2px;
+         color: $site-aux-text-color;
+      }
+   }
+}
+
+.categories_list {
+   border-bottom: 1px solid #ccc;
+   margin-bottom: 20px;
+
+   > li {
+      .category {
+         line-height: 40px;
+         border-bottom: 1px solid #fff;
+         border-top: 1px solid #ccc;
+         background-color: #f4f4f4;
+         @include border-radius(3px);
+         cursor: pointer;
+         
+         &:hover {background-color: #ffc;}
+
+         h2, p {
+            display: inline-block;
+         }
+
+         h2 {
+            margin: 0 0 0 1em;
+            width: 25%;
+            font-size: 1.2em;
+         }
+
+         p {
+            width: 70%;
+            color: $site-aux-text-color;
+         }
+      }
+
+      .category.current {
+         background-color: #ffc;
+      }
+
+      .brands_list {
+         display: none;
+         margin-top: 10px;
+      }
+   }
 }
 
 /* header */
