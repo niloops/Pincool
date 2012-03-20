@@ -15,6 +15,6 @@ module ApplicationHelper
   end
 
   def nl2br(html)
-    raw(h(html).gsub(/[(\n)(\r)]/, "\n" => "<br/>", "\r" => "" ))
+    raw(h(html).gsub(/[(\n)(\r)]/, "\n" => "<br>", "\r" => "" ))
   end
 end
