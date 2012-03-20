@@ -1,7 +1,7 @@
 @import "base";
 
 body#brands {
-
+   
    header#brand_head {
       padding: 20px 0 30px;
       $text-color: $site-aux-text-color;
@@ -120,26 +120,27 @@ body#brands {
 
    section#brand_publish {
       position: relative;
-      
+
       > a {
          position: absolute;
-         right: -135px;
+         right: -80px;
+         z-index: 10;
          display: inline-block;
          margin: 0 1em;
          width: 5.5em;
          line-height: 38px;
          padding-left: 3.5em;
          @include button-style;
-         @include transform(rotate(15deg));
+         /* @include transform(rotate(15deg)); */
       }
 
       .feeling_pub {
-         top: -20px;
+         top: -100px;
          @include background(image-url("feeling_pub.png") no-repeat 1em center,
                linear-gradient(#fff, #ddd));
       }
       .review_pub {
-         top: 40px;
+         top: -40px;
          @include background(image-url("review_pub.png") no-repeat 1em center,
                   linear-gradient(#fff, #ddd));
       }
