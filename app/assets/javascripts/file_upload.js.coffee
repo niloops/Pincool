@@ -34,5 +34,5 @@ Pincool.fileUpload = (file_input, dropzone, callback_suc) ->
     else
       $dropzone
         .addClass("fail")
-        .find('p').text("图片上传失败,"+result.message+",请重试")
+        .find('p').text("图片上传失败,"+result.message+",请刷新页面重试")
 
