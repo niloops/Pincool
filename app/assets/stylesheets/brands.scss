@@ -22,20 +22,15 @@ body#brands {
 
          #follow_toggle {
             button {
-               @include button-style;
                display: block;
+               @include button-style;
                margin: 0 auto;
-               padding-left: 18%;
                width: 120px;
                height: 40px;
             }
             button.follow {
+               padding-left: 18%;
                @include background(image-url("subscribe.png") no-repeat 11% center,
-               image-url("split_line.png") no-repeat 33% center,
-                  linear-gradient(#fff, #ddd));
-            }
-            button.unfollow {
-               @include background(image-url("unsubscribe.png") no-repeat 11% center,
                image-url("split_line.png") no-repeat 33% center,
                   linear-gradient(#fff, #ddd));
             }
@@ -65,6 +60,7 @@ body#brands {
             display: inline;
             font-size: 1.5em;
             margin-right: 3px;
+            @include site-title;
          }
 
          > p {
@@ -123,26 +119,29 @@ body#brands {
    }
 
    section#brand_publish {
+      position: relative;
+      
       > a {
-         position: relative;
-         top: -5px;
-         z-index: 100;
+         position: absolute;
+         right: -135px;
          display: inline-block;
-         float: right;
          margin: 0 1em;
-         width: 5em;
-         line-height: 28px;
-         padding-left: 3em;
+         width: 5.5em;
+         line-height: 38px;
+         padding-left: 3.5em;
          @include button-style;
+         @include transform(rotate(15deg));
       }
 
       .feeling_pub {
+         top: -20px;
          @include background(image-url("feeling_pub.png") no-repeat 1em center,
-               linear-gradient(#fff, #eee));
+               linear-gradient(#fff, #ddd));
       }
       .review_pub {
+         top: 40px;
          @include background(image-url("review_pub.png") no-repeat 1em center,
-                  linear-gradient(#fff, #eee));
+                  linear-gradient(#fff, #ddd));
       }
    }
 

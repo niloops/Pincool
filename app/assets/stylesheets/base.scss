@@ -109,3 +109,9 @@ $site-aux-text-color: #999;
 @mixin site-transition {
    @include transition(width 1s, opacity 0.22s ease-out);
 }
+
+@mixin site-title {
+   font: {
+      family: "Hiragino Sans GB", "Microsoft YaHei", arial, sans-serif;
+   }
+}
