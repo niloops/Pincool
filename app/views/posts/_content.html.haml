@@ -3,5 +3,4 @@
     %p{"data-name" => "content"}
       = nl2br @post.content
     %span.edit_tips 点击正文编辑
-  %textarea{id: "content", "class" => "inline_edit", placeholder: "请在这里说点感想吧", name: "content"}
-    = @post.content
+  %textarea{id: "content", "class" => "inline_edit", placeholder: "请在这里说点感想吧", name: "content"}= @post.content
