@@ -269,30 +269,24 @@ nav.pagination {
 }
 
 .categories_list {
-   border-bottom: 1px solid #ccc;
    margin-bottom: 20px;
 
    > li {
       .category {
          line-height: 40px;
-         border-bottom: 1px solid #fff;
-         border-top: 1px solid #ccc;
+         margin-bottom: 10px;
+         
          background-color: #f4f4f4;
          @include border-radius(3px);
          cursor: pointer;
-         
          &:hover {background-color: #ffc;}
 
-         h2, p {
-            display: inline-block;
-         }
-
+         h2, p {display: inline-block;}
          h2 {
             margin: 0 0 0 1em;
             width: 25%;
             font-size: 1.2em;
          }
-
          p {
             width: 70%;
             color: $site-aux-text-color;
@@ -306,6 +300,7 @@ nav.pagination {
       .brands_list {
          display: none;
          margin-top: 10px;
+         .brand {margin-top: 10px;}
       }
    }
 }
