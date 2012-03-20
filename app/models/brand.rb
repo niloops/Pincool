@@ -65,6 +65,13 @@ class Brand
     total_evas.map {|eva| eva/rc}
   end
 
+  def update_total_evas(evas)
+    evas.each_index do |index|
+      total_evas[index] += evas[index]
+    end
+    save
+  end
+
   def to_param
     uri
   end

@@ -43,8 +43,37 @@ describe Review do
     it {should_not be_valid}
   end
 
-  describe "evas added to brand" do
-    before {@review.save}
-    its(:evas) {should == brand.evas}
+  describe "Brand evas" do
+    before do
+      @review.save
+      @review_next = Review.new(author: author,
+                           brand: brand,
+                           title: "title",
+                           evas: [2,5,6],
+                           content: "content",
+                           photos: [Photo.new(image: "/image.png")])
+      @review_next.save
+    end
+
+    subject {brand}
+    its(:total_evas) {should == (0..2).map {|i| @review.evas[i]+@review_next.evas[i]}}
+    its(:evas) {should == (0..2).map {|i| brand.total_evas[i]/2}}
+
+    
+    describe "evas changed to brand" do
+      before do
+        @review_next.evas = [4, 8, 10]
+        @review_next.save
+      end
+      its(:total_evas) {should == (0..2).map {|i| @review.evas[i]+@review_next.evas[i]}}
+    end
+
+    describe "evas destroyed to brand" do
+      before do
+        @review_next.destroy
+      end
+      its(:total_evas) {should == @review.evas}
+    end
+    
   end
 end

@@ -15,16 +15,27 @@ class Review < Post
     end
   end
 
-  before_create :add_evas_to_brand
+  after_create :add_evas_to_brand
+  around_update :update_evas_to_brand
+  after_destroy :destroy_evas_to_brand
 
   private
 
   def add_evas_to_brand
-    return unless valid?
-    evas.each_index do |index|
-      brand.total_evas[index] += evas[index]
+    brand.update_total_evas evas
+  end
+
+  def update_evas_to_brand
+    evas_change = changes[:evas]
+    yield
+    if evas_change
+      brand.update_total_evas(evas_change[0].map(&:-@))
+      brand.update_total_evas(evas_change[1])
     end
-    brand.save
+  end
+
+  def destroy_evas_to_brand
+    brand.update_total_evas(evas.map(&:-@))
   end
 
 end
