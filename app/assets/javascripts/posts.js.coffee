@@ -63,18 +63,33 @@ Pincool.postEvas =
       evas[index] = point.toString()
       $('#evas').val(evas.join(" "))
 
+Pincool.postTitle =
+  ready: ->
+    $('#title').blur =>
+      this.check()
+  check: ->
+    if $('#title').length > 0 && !$('#title').val()
+      unless $('#title').next().hasClass("error_message")
+        $('#title')
+          .after('<span>请您输入标题</span>')
+          .next().addClass("error_message")
+      return false
+    else
+      if $('#title').next().hasClass("error_message")
+        $('#title').next().remove()
+    true
+
 Pincool.postForm = ->
   Pincool.postPhotos.ready()
   Pincool.postTexts.ready()
   Pincool.postEvas.ready()
+  Pincool.postTitle.ready()
   Pincool.cancelReady()
   $("form").submit ->
-
-    if $('#title').length > 0 && !$('#title').val()
-      $('#title')
-        .after('<span>请您输入标题</span>')
-        .next().addClass("error_message")
-
+    unless Pincool.postTitle.check()
+      $('#title').focus()
+      $('html,body').animate {scrollTop: 0}, 'slow'
+      return false
     unless $("#photo").val()
       $("#dropzone").addClass("fail").find('p').text("请您上传图片")
       return false

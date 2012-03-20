@@ -1,8 +1,8 @@
 - if @post.respond_to? :title
   %section#post-title
     - unless @post.title.blank?
-      %h1{"data-name" => "title"}
+      %h1.edit_able{"data-name" => "title"}
         = @post.title
       %span.edit_tips 点击标题编辑
     = text_field_tag 'title', @post.title, 
-    placeholder: "标题", class: "inline_edit"
+    placeholder: "标题(必填)", class: "inline_edit"

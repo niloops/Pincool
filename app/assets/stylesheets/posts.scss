@@ -7,7 +7,7 @@
    width: $width;
 
    .inline_edit {
-      background: $edit-bg-color;
+      &:focus {background: $edit-bg-color;}
    }
 
    .error_message {
@@ -44,6 +44,9 @@
          font-size: 1.7em;
          color: #777;
          vertical-align: bottom;
+      }
+
+      h1.edit_able {
          &:hover {background: $edit-bg-color;}
       }
 
@@ -127,6 +130,9 @@
          display: inline;
          font-size: 1.1em;
          line-height: 1.6em;
+      }
+
+      p.edit_able {
          &:hover {background: $edit-bg-color;}
       }
 
