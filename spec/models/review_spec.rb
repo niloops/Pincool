@@ -17,6 +17,7 @@ describe Review do
 
   it {should be_valid}
   it {should respond_to :title}
+  it {should respond_to :evaluated?}
 
   describe "should has title" do
     before {@review.title = ""}
@@ -26,6 +27,14 @@ describe Review do
   describe "should has evas" do
     before {@review.evas = []}
     it {should_not be_valid}
+  end
+
+  describe "should not valid evas when not evaluated?" do
+    before do
+      @review.evas = []
+      @review.evaluated = false
+    end
+    it {should be_valid}
   end
 
   describe "evas should = 3" do

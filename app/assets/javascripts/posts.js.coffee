@@ -55,13 +55,25 @@ Pincool.postTexts =
             .focus()
 
 Pincool.postEvas =
-  ready: ->
-    return if $('#post-evas').length == 0
+  checkEvaluated: ->
+    if $('#evaluated_false').attr('checked')
+      $('#post-evas').hide()
+    $('#evaluated_false').change =>
+      $('#post-evas').slideUp()
+    $('#evaluated_true').change =>
+      $('#post-evas').slideDown()
+
+  evasReady: ->
     Pincool.Evas.draw $('#post-evas'), true, true
     Pincool.Evas.ratingReady $('#post-evas'), (index, point) ->
       evas = $('#evas').val().split(/\s/)
       evas[index] = point.toString()
       $('#evas').val(evas.join(" "))
+
+  ready: ->
+    return if $('#post-evas').length == 0
+    this.evasReady()
+    this.checkEvaluated()
 
 Pincool.postTitle =
   ready: ->

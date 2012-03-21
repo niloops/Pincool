@@ -1,9 +1,10 @@
 class Review < Post
   field :evas, type: Array
+  field :evaluated, type: Boolean, default: true
 
   validates_presence_of :title
-  validates_presence_of :evas
-  validates_length_of :evas, is: 3
+  validates_presence_of :evas, if: :evaluated?
+  validates_length_of :evas, is: 3, if: :evaluated?
 
   validate do |review|
     review.evas.each do |eva|

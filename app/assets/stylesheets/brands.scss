@@ -1,7 +1,6 @@
 @import "base";
 
 body#brands {
-   
    header#brand_head {
       padding: 20px 0 30px;
       $text-color: $site-aux-text-color;
@@ -212,5 +211,7 @@ body#brands {
          }
       }
    }
+
+   .author .author_brand {display: none;}
 }
 

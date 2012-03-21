@@ -61,6 +61,14 @@
       }
    }
 
+   #post-evaluated {
+      input {
+         margin-left: 1em;
+         vertical-align: bottom;
+      }
+      color: $site-aux-text-color;
+   }
+
    #post-evas {
       ul.evaluation {
          display: inline-block;

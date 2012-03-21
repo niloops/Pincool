@@ -1,6 +1,11 @@
-- if @post.respond_to? :evas
-  - @post.evas ||= [5, 5, 5]
+- if @post.respond_to? :evas 
+  - @post.evas = [5, 5, 5] if @post.evas.blank?
+  %section#post-evaluated
+    = radio_button_tag("evaluated", "false", !@post.evaluated?)
+    我想要这个产品
+    = radio_button_tag("evaluated", "true", @post.evaluated?)
+    我有这个产品，想对它进行评价
   %section#post-evas
     = render 'shared/evas', evas: @post.evas
     %span.edit_tips 滑动评分，点击确定
-  = hidden_field_tag :evas, @post.evas
+    = hidden_field_tag :evas, @post.evas

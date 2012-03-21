@@ -6,7 +6,7 @@
     - if post.respond_to? :title
       = link_to brand_post_path(post.brand, post) do
         %h1= post.title
-    - if post.respond_to? :evas
+    - if post.respond_to? :evas and post.evaluated?
       = render 'shared/evas', evas: post.evas
     - if !post.content.blank?    
       %p= auto_link(nl2br(post.content.truncate(1000)))

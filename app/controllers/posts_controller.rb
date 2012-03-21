@@ -45,9 +45,13 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     @post.photos = [Photo.new(image: params[:photo])] if params[:photo]
     @post.title = params[:title]
-    if @post.respond_to? :evas
-      @post.evas = params[:evas].split(/\s+/).map {|e| e.to_i}
+    if @post.respond_to? :evaluated
+      @post.evaluated = (params[:evaluated] == "true")
+      @post.evas = @post.evaluated ?
+      (params[:evas].split(/\s+/).map {|e| e.to_i}) :
+        []
     end
+
     @post.save ? (redirect_to brand_path(@post.brand)) : (render 'show')
   end
 

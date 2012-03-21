@@ -2,7 +2,11 @@
   = link_to author_avatar(post.author), user_path(post.author)
   %p
     = link_to post.author.name, user_path(post.author)
-    发在
-    = link_to post.brand.title, brand_path(post.brand)
+    %span.author_review
+      - if post.respond_to? :evaluated 
+        = post.evaluated? ? "评价的产品" : "想要的产品"
+    %span.author_brand
+      在
+      = link_to post.brand.title, brand_path(post.brand)
   - if post.updated_at
     = time_tag post.updated_at, time_ago_in_words(post.updated_at)+"前"
