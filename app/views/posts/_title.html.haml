@@ -1,8 +1,9 @@
-- if @post.respond_to? :title
-  %section#post-title
-    - unless @post.title.blank?
-      %h1.edit_able{"data-name" => "title"}
-        = @post.title
-      %span.edit_tips 点击标题编辑
-    = text_field_tag 'title', @post.title, 
-    placeholder: "标题(必填)", class: "inline_edit"
+%section#post-title
+  - unless @post.title.blank?
+    %h1.edit_able{"data-name" => "title"}
+      = @post.title
+    %span.edit_tips 点击标题编辑
+  - placeholder = "标题"  
+  - placeholder = "产品名称(必填)" if @post.type == "Review"
+  = text_field_tag 'title', @post.title, 
+  required: @post.title_required?, placeholder: placeholder, "class" => "inline_edit"

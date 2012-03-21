@@ -2,6 +2,7 @@ class Post
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  field :title, type: String
   field :content, type: String
   belongs_to :author, class_name: 'User',
   index: true, inverse_of: :posts
@@ -33,6 +34,10 @@ class Post
 
   def edited_by?(edit_user)
     edit_user.admin? || author == edit_user 
+  end
+
+  def title_required?
+    !self.class.validators_on(:title).blank?
   end
 
 end

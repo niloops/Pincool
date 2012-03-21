@@ -7,6 +7,7 @@ describe Feeling do
   before do
     @feeling = Feeling.new(author: author,
                            brand: brand,
+                           title: "feeling title", 
                            content: "content",
                            photos: [Photo.new(image: "/image.png")])
   end
@@ -14,7 +15,7 @@ describe Feeling do
   subject {@feeling}
 
   it {should be_valid}
-  it {should_not respond_to :title}
+  it {should respond_to :title}
   its(:author) {should == author}
   its(:brand) {should == brand}
 

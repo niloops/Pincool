@@ -1,5 +1,4 @@
 class Review < Post
-  field :title, type: String
   field :evas, type: Array
 
   validates_presence_of :title

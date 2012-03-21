@@ -47,6 +47,10 @@ input:focus {
    -webkit-appearance: none;
 }
 
+input:invalid {
+   background-color: #fff;
+}
+
 textarea {
    padding: 0;
 

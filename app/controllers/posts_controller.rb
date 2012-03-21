@@ -44,9 +44,7 @@ class PostsController < ApplicationController
   def save_post
     @post.content = params[:content]
     @post.photos = [Photo.new(image: params[:photo])] if params[:photo]
-    if @post.respond_to? :title
-      @post.title = params[:title]
-    end
+    @post.title = params[:title]
     if @post.respond_to? :evas
       @post.evas = params[:evas].split(/\s+/).map {|e| e.to_i}
     end

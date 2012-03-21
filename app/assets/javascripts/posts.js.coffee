@@ -68,7 +68,7 @@ Pincool.postTitle =
     $('#title').blur =>
       this.check()
   check: ->
-    if $('#title').length > 0 && !$('#title').val()
+    if $('#title').attr('required') && !$('#title').val()
       unless $('#title').next().hasClass("error_message")
         $('#title')
           .after('<span>请您输入标题</span>')

@@ -20,7 +20,7 @@ class Brand
   validates_length_of :title, within: 1..20, too_long: "名称最多只能输入%{count}个字"
   validates_presence_of :uri, message: "域名不能为空"
   validates_format_of :uri, with: /^[0-9a-z-]+$/, message: "域名仅限小写字母、数字与“-”"
-  validates_length_of :uri, within: 4..255, message: '域名长度应在4-255个字符之间'
+  validates_length_of :uri, within: 3..255, message: '域名长度应在3-255个字符之间'
   validates_uniqueness_of :uri, case_sensitive: false, message: "此域名已被使用"
   validates_presence_of :logo, message: "请上传logo图片"
   validates_format_of :logo, with: /^\/[0-9a-z]+\.[a-z]+$/
