@@ -278,6 +278,7 @@ nav.pagination {
 
    > li {
       .category {
+         position: relative;
          line-height: 40px;
          margin-bottom: 10px;
          
@@ -295,6 +296,12 @@ nav.pagination {
          p {
             width: 70%;
             color: $site-aux-text-color;
+         }
+         
+         .more {
+            position: absolute;
+            top: 50px;
+            right: 2em;
          }
       }
 

@@ -2,4 +2,7 @@
   .category
     %h2= link_to category.name, category
     %p= category_brands_tag category
-  = render 'brands/brands', brands: category.brands.limit(6)
+    - if category.brands.count > 5
+      .more= link_to "查看更多", category
+  = render 'brands/brands', brands: category.brands.limit(5)
+  
