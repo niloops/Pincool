@@ -83,6 +83,16 @@ describe Review do
       end
       its(:total_evas) {should == @review.evas}
     end
+
+    describe "review change to unevaluated" do
+      before do
+        @review_next.evas = []
+        @review_next.evaluated = false
+        @review_next.save
+      end
+      its(:total_evas) {should == @review.evas}
+      its(:evas) {should == @review.evas}
+    end
     
   end
 end

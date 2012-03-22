@@ -60,7 +60,7 @@ class Brand
   end
 
   def evas
-    rc = reviews.count
+    rc = reviews.where(evaluated: true).count
     return [0, 0, 0] if rc <= 0 
     total_evas.map {|eva| eva/rc}
   end
