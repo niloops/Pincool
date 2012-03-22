@@ -16,4 +16,11 @@
 .field
   = f.text_field :description, placeholder: "请填写品牌一句话简介", size: 40
 .field
-  = f.select "category_ids", Category.all.map {|c| [c.name, c.id]}, {}, multiple: true, "data-placeholder" => "请选择品牌领域"
+  = f.select "category_ids", categories_for_select, {}, multiple: true, "data-placeholder" => "请选择品牌领域"
+.field.eva_names_select
+  = label_tag :eva_names, "请选择品牌评测项名称"
+- [:r, :b, :g].each_with_index do |type, index|
+  .field{"class"=>["eva_names_select", "eva_names_select_#{type}"]}
+    %select{name: "brand[eva_names][]"}
+      - eva_names_for_select(type).each do |name|
+        %option{value: name, selected: @brand.eva_names[index]==name}= name

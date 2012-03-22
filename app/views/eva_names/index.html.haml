@@ -1,0 +1,13 @@
+%section
+  %header
+    %h1 品牌评测项列表
+  %table
+    %tr
+      %th= "名称"
+      %th= "操作"
+    - @eva_names.each do |eva_name|
+      %tr{"class" => eva_name.type}
+        %td= eva_name.name
+        %td= link_to "删除", eva_name, method: :delete, confirm: "确定?"
+  #new_eva_name_link
+    = link_to "新建", new_eva_name_path

@@ -28,4 +28,12 @@ module BrandsHelper
       'data-toggle-title' => unfollow_title
     end
   end
+
+  def categories_for_select
+    Category.all.map {|c| [c.name, c.id]}
+  end
+
+  def eva_names_for_select(type)
+    EvaName.where(type: type.to_sym).map {|e| e.name}
+  end
 end

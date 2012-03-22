@@ -1,0 +1,17 @@
+@import "base";
+
+body#eva_names {
+   form {
+      @include admin-form;
+   }
+
+   #new_eva_name_link {
+      @include admin-new;
+   }
+
+   table {
+      .r {background: $site-evas-r;}
+      .g {background: $site-evas-g;}
+      .b {background: $site-evas-b;}
+   }
+}

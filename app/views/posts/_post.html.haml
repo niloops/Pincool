@@ -7,7 +7,7 @@
       = link_to brand_post_path(post.brand, post) do
         %h1= post.title
     - if post.respond_to? :evas and post.evaluated?
-      = render 'shared/evas', evas: post.evas
+      = render 'shared/evas', evas: post.evas, eva_names: post.brand.eva_names
     - if !post.content.blank?    
       %p= auto_link(nl2br(post.content.truncate(1000)))
   %footer

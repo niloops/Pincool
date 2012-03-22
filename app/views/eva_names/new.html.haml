@@ -1,0 +1,12 @@
+%section
+  %header
+    %h1 新建品牌评测项
+  = form_for(@eva_name) do |f| 
+    .field
+      = f.label :name, "名称"
+      = f.text_field :name, size:10
+    .field
+      = f.label :type, "类型"
+      = f.select "type", [:r, :g, :b], {}
+    .action  
+      = f.submit "提交"

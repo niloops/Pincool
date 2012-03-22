@@ -7,6 +7,7 @@ class Brand
   field :logo, type: String
   field :description, type: String
   field :total_evas, type: Array, default: [0, 0, 0]
+  field :eva_names, type: Array, default: %w{设计 性能 实惠}
   index :uri, unique: true
   index :created_at
 

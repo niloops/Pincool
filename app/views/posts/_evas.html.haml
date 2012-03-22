@@ -6,6 +6,6 @@
     = radio_button_tag("evaluated", "true", @post.evaluated?)
     我有这个产品，想对它进行评价
   %section#post-evas
-    = render 'shared/evas', evas: @post.evas
+    = render 'shared/evas', evas: @post.evas, eva_names: @post.brand.eva_names
     %span.edit_tips 滑动评分，点击确定
     = hidden_field_tag :evas, @post.evas

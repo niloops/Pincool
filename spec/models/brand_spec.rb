@@ -16,6 +16,7 @@ describe Brand do
 
   it {should be_valid}
   its(:founder) {should == user}
+  it {should be_respond_to :eva_names}
 
   describe "Validation" do
 

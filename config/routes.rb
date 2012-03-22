@@ -36,6 +36,8 @@ Pincool::Application.routes.draw do
       get "index_for_admin"
     end
   end
+
+  resources :eva_names, only: [:new, :create, :index, :destroy]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

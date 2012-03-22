@@ -3,7 +3,7 @@
     %h1= @post.title
 - if @post.respond_to? :evas and @post.evaluated?
   %section#post-evas
-    = render 'shared/evas', evas: @post.evas
+    = render 'shared/evas', evas: @post.evas, eva_names: @post.brand.eva_names
 %section#post-photos
   #imagezone    
     - photo = @post.photos.first
