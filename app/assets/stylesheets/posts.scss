@@ -59,6 +59,7 @@
          color: $site-aux-text-color;
          border: 1px solid #ddd;
          padding: 5px;
+         @include site-title;
       }
    }
 
