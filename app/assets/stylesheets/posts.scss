@@ -44,6 +44,7 @@
          font-size: 1.7em;
          color: #777;
          vertical-align: bottom;
+         @include site-title;
       }
 
       h1.edit_able {
