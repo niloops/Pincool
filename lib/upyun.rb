@@ -18,7 +18,7 @@ class UpYun
   def policy
     @policy ||= Base64.strict_encode64({
       "bucket" => @memos[:bucket],
-      "expiration" => 5.minutes.since.to_i,
+      "expiration" => 30.minutes.since.to_i,
       "save-key" => "/{filemd5}{.suffix}",
       "allow-file-type" => "jpg,jpeg,gif,png",
       "return-url" => @return_url,
