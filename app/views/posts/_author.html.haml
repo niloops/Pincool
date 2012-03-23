@@ -4,7 +4,9 @@
     = link_to post.author.name, user_path(post.author)
     %span.author_review
       - if post.respond_to? :evaluated 
-        = post.evaluated? ? "评价的产品" : "想要的产品"
+        = post.evaluated? ? "的产品评价" : "想要的"
+      - elsif post.type == "Feeling"
+        = "的感受"
     %span.author_brand
       在
       = link_to post.brand.title, brand_path(post.brand)
