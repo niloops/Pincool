@@ -15,5 +15,6 @@
         = link_to "[删除本贴]", brand_post_path(@post.brand, @post),
         method: :delete, confirm: "确定要删除吗？"
     = render 'author', post: @post  
-  = render @post.comments  
-  = render 'comments/pub', post: @post
+  - unless @post.new?  
+    = render @post.comments  
+    = render 'comments/pub', post: @post
