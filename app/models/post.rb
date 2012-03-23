@@ -12,6 +12,7 @@ class Post
   alias type _type
 
   embeds_many :photos
+  embeds_many :comments
 
   validates_presence_of :author
   validates_presence_of :brand
@@ -32,7 +33,7 @@ class Post
     end
   end
 
-  def edited_by?(edit_user)
+  def editable_by?(edit_user)
     edit_user.admin? || author == edit_user 
   end
 

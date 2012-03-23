@@ -24,7 +24,9 @@ Pincool::Application.routes.draw do
       post "follow_toggle"
       get "posts_data"
     end
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
   get "explore", to: "posts#index"
   get "explore_data", to: "posts#index_data"

@@ -9,6 +9,9 @@
         = "的感受"
     %span.author_brand
       在
-      = link_to post.brand.title, brand_path(post.brand)
+      = link_to(post.brand.title, brand_path(post.brand))
   - if post.updated_at
     = time_tag post.updated_at, time_ago_in_words(post.updated_at)+"前"
+  - if post.comments.count > 0
+    %span.comment_count{title: "已经有#{post.comments.count}个回复"}
+      = post.comments.count

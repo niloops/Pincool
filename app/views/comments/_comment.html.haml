@@ -1,0 +1,16 @@
+%article.comment
+  = link_to author_avatar(comment.author), user_path(comment.author)
+  %p
+    = link_to comment.author.name, user_path(comment.author)
+    %span.comment_content
+      = nl2br comment.content.strip
+    = time_tag comment.created_at, time_ago_in_words(comment.created_at)+"前"
+    - if comment.editable_by?(current_user)
+      = link_to "x",
+        brand_post_comment_path(comment.post.brand, comment.post, comment),
+        class: "comment_destroy",
+        method: :delete,
+        remote: true,
+        'data-type' => 'text',
+        title: "删除",
+        confirm: "确定要删除吗？"
