@@ -11,8 +11,8 @@
     #current_user
       = link_to current_user do
         = image_tag current_user.image_url, class: "people_thumb_small", 
-        title: current_user.name.truncate(9), alt: current_user.name
-        %strong= current_user.name
+        title: current_user.name, alt: current_user.name
+        %strong= current_user.name.truncate(9)
       %ul
         %li= link_to "建立新品牌", new_brand_path
         - if current_user.admin?
