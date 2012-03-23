@@ -9,6 +9,9 @@
     - if post.respond_to? :evas and post.evaluated?
       = render 'shared/evas', evas: post.evas, eva_names: post.brand.eva_names
     - if !post.content.blank?    
-      %p= auto_link(nl2br(post.content.truncate(1000)))
+      %p
+        = auto_link(nl2br(post.content.truncate(1000)), html: {target: '_blank'}) do |text|
+          - truncate(text, length: 30)
+        
   %footer
     = render 'posts/author', post: post

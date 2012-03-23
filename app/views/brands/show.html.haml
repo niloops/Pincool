@@ -20,7 +20,7 @@
           %li= link_to category.name, category
   %section#brand_publish
     = link_to "品牌感受", new_brand_post_path(@brand)+"?type=feeling", "class" => "feeling_pub"
-    = link_to "产品评测", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"
+    = link_to "产品评价", new_brand_post_path(@brand)+"?type=review", "class" => "review_pub"
   = render "posts/posts", posts_name: @brand.title+"的帖子", posts_url: posts_data_brand_path(@brand)
 - content_for :script do
   :javascript
