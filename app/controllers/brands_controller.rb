@@ -50,6 +50,6 @@ class BrandsController < ApplicationController
 
   def author
     @brand = Brand.find_by_uri params[:id]
-    redirect_to(root_path) unless @brand && @brand.edited_by?(current_user)
+    redirect_to(root_path) unless @brand && @brand.editable_by?(current_user)
   end
 end

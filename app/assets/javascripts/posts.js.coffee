@@ -105,9 +105,11 @@ Pincool.postForm = ->
     unless $("#photo").val()
       $("#dropzone").addClass("fail").find('p').text("请您上传图片")
       return false
+  Pincool.comments.ready()
 
 Pincool.postShow = ->
   Pincool.Evas.draw $('#post-evas'), true, true
+  Pincool.comments.ready()
 
 Pincool.postsIndex = ->
   Pincool.Articles.init()

@@ -57,6 +57,6 @@ class PostsController < ApplicationController
 
   def author
     @post = Post.find params[:id]
-    redirect_to(root_path) unless @post && @post.edited_by?(current_user)
+    redirect_to(root_path) unless @post && @post.editable_by?(current_user)
   end
 end

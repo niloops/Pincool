@@ -72,19 +72,19 @@ describe Brand do
     end
 
     describe "when edited by author" do
-      it {should be_edited_by(user)}
+      it {should be_editable_by(user)}
     end
   end
 
   describe "Edit authentication" do
     describe "when edited by admin" do
       let(:admin) {FactoryGirl.create(:admin)}
-      it {should be_edited_by(admin)}
+      it {should be_editable_by(admin)}
     end
 
     describe "when edited by someone not author" do
       let(:other) {FactoryGirl.create(:user)}
-      it {should_not be_edited_by(other)}
+      it {should_not be_editable_by(other)}
     end
 
   end

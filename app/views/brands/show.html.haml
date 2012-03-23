@@ -10,7 +10,7 @@
     #info
       %h1= @brand.title
       %p= @brand.description
-      - if current_user && @brand.edited_by?(current_user)
+      - if current_user && @brand.editable_by?(current_user)
         %p= link_to "[编辑]", edit_brand_path(@brand)
       = render 'shared/evas', evas: @brand.evas, eva_names: @brand.eva_names      
     #tags

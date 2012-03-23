@@ -29,7 +29,7 @@ FactoryGirl.define do
     author
     brand
     title "Title"
-    evas [0, 0, 0]
+    evas [1, 1, 1]
     content "content"
     photos [Photo.new(image: "/image.png")]
   end

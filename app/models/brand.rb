@@ -40,7 +40,7 @@ class Brand
     end
   end
 
-  def edited_by?(edit_user)
+  def editable_by?(edit_user)
     edit_user.admin? || founder == edit_user 
   end
 

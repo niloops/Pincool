@@ -1,0 +1,4 @@
+= form_tag brand_post_comments_path(post.brand, post), remote: true, 
+  "class" => "comment comment_pub", 'data-type' => 'html' do 
+  %textarea{placeholder: "请在这里发布回复", name: "content"}
+  = button_tag "发布"  
