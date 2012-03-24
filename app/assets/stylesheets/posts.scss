@@ -27,10 +27,10 @@
       }
    }
    &.review:after {
-      border-left-color: #4694fd;
+      border-left-color: $site-blue;
    }
    &.feeling:after {
-      border-left-color: #f7646a;
+      border-left-color: $site-red;
    }
 
    > header {
@@ -173,6 +173,10 @@
       #destroy {
          float: right;
          margin-right: 2em;
+      }
+
+      .comment_count {
+         display: none;
       }
    }
 

@@ -196,8 +196,10 @@ nav.pagination {
    }
 
    .comment_count {
-      padding-left: 30px;
+      float: right;
+      padding-left: 2em;
       background: image-url("comment_small.png") no-repeat scroll 20% center transparent;
+      color: $site-blue;
    }
 }
 
@@ -242,7 +244,7 @@ nav.pagination {
       }
 
       ul.evaluation {
-         padding: 0 10%;
+         padding: 0 20%;
          text-align: left;
 
          li {

@@ -65,10 +65,10 @@
    }
 
    article.review:after {
-      border-right-color: #4694fd;
+      border-right-color: $site-blue;
    }
    article.feeling:after {
-      border-right-color: #f7646a;
+      border-right-color: $site-red;
    }
 
    .posts_loading {
