@@ -9,3 +9,7 @@ Pincool.categoriesIndex = ->
       .next().stop(true, true).slideToggle()
     $(this).find('.more').fadeIn()
   .filter(':first').trigger('click')
+  Pincool.Evas.draw '.brand'
+
+Pincool.categoriesShow = ->
+  Pincool.Evas.draw '.brand'

@@ -6,3 +6,6 @@
       = link_to "查看其他领域", categories_path
   %section
     = render 'brands/brands', brands: @category.brands
+- content_for :script do
+  :javascript
+    $(Pincool.categoriesShow);

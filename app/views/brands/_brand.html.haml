@@ -2,3 +2,4 @@
   = link_to logo_tag(brand, :small), brand_path(brand), class: 'brand_logo'  
   = link_to brand.title.truncate(10), brand_path(brand), class: 'brand_title'
   %p= brand.description.truncate(10)
+  = render 'shared/evas', evas: brand.evas, eva_names: brand.eva_names
