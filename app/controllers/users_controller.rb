@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :signed_in_user
   
   def home
-    if current_user.followings.blank?
+    if current_user.followings.blank? || params[:recommend]
       @categories = Category.limit(10)
       render 'recommends'
     end
