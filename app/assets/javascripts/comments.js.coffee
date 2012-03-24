@@ -7,6 +7,7 @@ Pincool.comments =
         .insertBefore(this)
         .slideDown()
       _comments.destroyBind(comment.find('.comment_destroy'))
+      $(this).find('textarea').val('')
 
   destroyBind: ($element)->
     $element.bind 'ajax:success', (e, data, status, xhr) ->

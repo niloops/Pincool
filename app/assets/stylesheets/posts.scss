@@ -213,7 +213,7 @@
          margin: 0 2% 0 0;
          border: 1px solid #ccc;
          padding: .5em;
-         width: 70%;
+         width: 80%;
          height: 6em;
          resize: vertical;
          @include border-radius(3px);
@@ -225,7 +225,7 @@
 
       button {
          @include blue-button-style;
-         margin: 0 0 0 8em;
+         margin: 0 0 0 2em;
       }
    }
 }
