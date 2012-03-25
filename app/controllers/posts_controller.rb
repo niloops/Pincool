@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def save_post
-    @post.content = params[:content]
+    @post.content = params[:content].strip
     @post.photos = [Photo.new(image: params[:photo])] if params[:photo]
     @post.title = params[:title]
     if @post.respond_to? :evaluated
