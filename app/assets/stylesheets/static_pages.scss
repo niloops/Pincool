@@ -13,6 +13,7 @@ body#static_pages.sign_up {
       line-height: 30px;
       text-align: center;
       color: white;
+      background: #999;
       @include background(
          linear-gradient(rgba(102, 102, 102, 0.8), rgba(153, 153, 153, 0.8)));
 

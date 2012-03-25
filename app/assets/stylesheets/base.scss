@@ -29,6 +29,7 @@ $site-red: #f7646a;
 @mixin button-style {
    border: 1px solid #ccc;
    color: $site-aux-text-color;
+   background: #ddd;
    @include background(linear-gradient(#fff, #ddd));
    @include border-radius(3px);
 
@@ -44,7 +45,8 @@ $site-red: #f7646a;
 
 @mixin blue-button-style {
    @include button-style;
-   @include background(linear-gradient(#66ccff, #09f));
+   background: #09f;
+   @include background(linear-gradient(#6cf, #09f));
    border: 1px solid #09f;
    color: #fff;
 }

@@ -333,6 +333,7 @@ body.signed_in > header {
    left: 0;
    right: 0;
    height: 50px;
+   background: #f4f4f4;
    @include background(linear-gradient(#fff, #f4f4f4));
    @include box-shadow(0 1px 2px #ccc);
 
@@ -502,6 +503,7 @@ ul.evaluation {
       .eva_container {
          background: #f8e5e7;
          .eva_points {
+            background: #c66;
             @include background(linear-gradient(left center, #f66, #c66));
          }
       }
@@ -514,6 +516,7 @@ ul.evaluation {
       .eva_container {
          background: #edf5fe;
          .eva_points {
+            background: #06f;
             @include background(linear-gradient(left center, #39f, #06f));
          }
       }
@@ -526,6 +529,7 @@ ul.evaluation {
       .eva_container {
          background: #f9ffeb;
          .eva_points {
+            background: #6c3;
             @include background(linear-gradient(left center, #9c3, #6c3));
          }
       }
