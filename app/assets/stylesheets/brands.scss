@@ -30,6 +30,8 @@ body#brands {
             button.follow {
                padding-left: 18%;
                @include background(image-url("subscribe.png") no-repeat 11% center,
+               image-url("split_line.png") no-repeat 33% center);
+               @include background(image-url("subscribe.png") no-repeat 11% center,
                image-url("split_line.png") no-repeat 33% center,
                   linear-gradient(#fff, #ddd));
             }
@@ -135,11 +137,15 @@ body#brands {
 
       .feeling_pub {
          top: -100px;
+         @include background(image-url("feeling_pub.png") no-repeat 1em center, 
+            #fff);
          @include background(image-url("feeling_pub.png") no-repeat 1em center,
                linear-gradient(#fff, #ddd));
       }
       .review_pub {
          top: -40px;
+         @include background(image-url("review_pub.png") no-repeat 1em center, 
+            #fff);
          @include background(image-url("review_pub.png") no-repeat 1em center,
                   linear-gradient(#fff, #ddd));
       }

@@ -370,6 +370,7 @@ body.signed_in > header {
 
                &:hover {
                   color: white;
+                  background: #999;
                   @include background(linear-gradient(#999, #333));
                }
             }
@@ -410,6 +411,7 @@ body.signed_in > header {
                   border: 1px solid #ccc;
                   border-top: none;
                   color: $header-text-color;
+                  background: #f4f4f4;
                   @include background(linear-gradient(white, #f4f4f4));
 
                   &:hover {
@@ -422,6 +424,8 @@ body.signed_in > header {
          }
 
          &:hover {
+            @include background(image-url("current_user_menu_open.png") no-repeat 90% center,
+                        #999);
             @include background(image-url("current_user_menu_open.png") no-repeat 90% center,
                         linear-gradient(#999, #333));
 
