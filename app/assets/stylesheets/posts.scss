@@ -202,6 +202,14 @@
       }
    }
 
+   .comments_header {
+      color: $site-aux-text-color;
+      text-align: left;
+      padding-left: 2em;
+      font-size: 1.2em;
+      min-height: 20px;
+   }
+
    .comment_pub {
       text-align: left;
       margin-bottom: -20px;

@@ -16,5 +16,6 @@
         method: :delete, confirm: "确定要删除吗？"
     = render 'author', post: @post  
   - unless @post.new?  
+    = render 'comments/count', count: @post.comments.count
     = render @post.comments  
     = render 'comments/pub', post: @post
