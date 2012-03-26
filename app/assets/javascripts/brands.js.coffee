@@ -12,6 +12,7 @@ Pincool.brandForm = ->
       $("#dropzone").addClass("fail").find('p').text("请您上传logo图片")
       false
   Pincool.cancelReady()
+  $('input[placeholder]').placeholder();
 
 Pincool.followToggle = ->
   $form = $("#follow_toggle")

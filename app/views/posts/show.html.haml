@@ -1,4 +1,4 @@
-- provide :title, @post.brand.title
+- provide :title, raw(@post.brand.title)
 %section#post_show{class: @post.type.downcase}
   %header.brands_normal
     .brand

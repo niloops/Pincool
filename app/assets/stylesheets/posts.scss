@@ -197,7 +197,10 @@
 
       p {
          display: inline;
-         > * {padding-left: .5em;}
+         > * {
+            padding-left: .5em;
+            line-height: 1.6em;
+         }
          time {color: $site-aux-text-color;}
       }
    }

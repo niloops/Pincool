@@ -98,13 +98,9 @@ a {
    }
 }
 
-:-moz-placeholder {
-   color: #ccc;
-}
-
-::-webkit-input-placeholder {
-   color: #ccc;
-}
+:-moz-placeholder {color: #ccc;}
+::-webkit-input-placeholder {color: #ccc;}
+.placeholder {color: #ccc;}
 
 body {
    background: image-url("bg.gif")
