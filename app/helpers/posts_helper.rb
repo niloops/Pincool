@@ -10,19 +10,4 @@ module PostsHelper
     title: author.name,
     "class" => "people_thumb_small"
   end
-
-  def evas_tag(evas)
-    evas ||= [5, 5, 5]
-    content_tag(:ul, "class" => "evaluation") do
-      {sensibility: evas[0],
-        rationality: evas[1],
-        economy: evas[2]}.map do |name, value|
-        content_tag(:li, "class" => name.to_s )
-      end.join
-    end
-  end
-  # %ul.evaluation
-  #   %li.sensibility{"data-name"=>"印象", "data-value"=>"7", "data-max"=>"10", "data-desc"=>"外观/设计/印象 7/10"}
-  #   %li.rationality{"data-name"=>"内涵", "data-value"=>"8", "data-max"=>"10", "data-desc"=>"性能/质量/内涵 8/10"}
-  #   %li.economy{"data-name"=>"实惠", "data-value"=>"9", "data-max"=>"10", "data-desc"=>"经济/实用/方便 9/10"}
 end

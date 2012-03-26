@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   end
 
   def upyun_redirect
-    render json: {code: params[:code], message: params[:message], url: params[:url]}
+    @json = {code: params[:code], message: params[:message], url: params[:url]}.to_json
+    render layout: false
   end
 end
