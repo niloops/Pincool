@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
+    Message.read_comment(current_user, @post)
   end
 
   def index

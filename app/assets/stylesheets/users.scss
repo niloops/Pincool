@@ -33,4 +33,34 @@ body#users {
          }
       }
    }
+
+   .messages_head {
+      button {
+         position: relative;
+         top: -25px;
+         float: right;
+         width: 100px;
+         @include blue-button-style;
+      }
+   }
+
+   .messages_content {
+      ul.messages {
+         > li {
+            margin-bottom: 20px;
+            img {float: left;}
+            .message {
+               margin-left: 4em;
+               border-bottom: 1px dashed #ccc;
+               line-height: 2em;
+               padding: .5em;
+               background: #ffc;
+               color: $site-aux-text-color;
+               cursor: pointer;
+
+               time {margin-left: .2em;}
+            }
+         }
+      }
+   }
 }

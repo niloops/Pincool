@@ -1,0 +1,15 @@
+- provide :title, @user.name+"的通知"
+%section
+  %header.messages_head
+    %h1= "通知"
+    %nav
+      = link_to "未读通知(#{@user.messages.unreads.count})", 
+      messages_data_user_path(@user, unread: true), remote: true
+      = link_to "所有通知(#{@user.messages.count})", 
+      messages_data_user_path(@user), remote: true
+    = form_tag messages_readall_user_path(@user) do
+      = button_tag "我知道了", disable_with: "提交中.."
+  %section.messages_content
+- content_for :script do
+  :javascript
+    $(Pincool.userMessages);

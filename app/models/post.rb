@@ -40,5 +40,4 @@ class Post
   def title_required?
     !self.class.validators_on(:title).blank?
   end
-
 end

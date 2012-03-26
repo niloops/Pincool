@@ -12,6 +12,9 @@ Pincool::Application.routes.draw do
       get "found_brands"
       get "pub_posts"
       get "pub_posts_data"
+      get "messages"
+      get "messages_data"
+      post "messages_readall"
     end
   end
   

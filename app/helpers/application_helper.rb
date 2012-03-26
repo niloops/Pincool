@@ -17,4 +17,9 @@ module ApplicationHelper
   def nl2br(html)
     raw(h(html).gsub(/[(\n)(\r)]/, "\n" => "<br>", "\r" => "" ))
   end
+
+  def time_ago_tag(time)
+    time_tag time, time_ago_in_words(time)+"前"
+  end
+
 end
