@@ -9,6 +9,7 @@ class User
   has_many :found_brands, class_name: 'Brand', inverse_of: :founder
   has_and_belongs_to_many :followings, class_name: 'Brand'
   has_many :posts, inverse_of: :author, validate: false
+  embeds_many :messages
 
   before_create :create_token
 
