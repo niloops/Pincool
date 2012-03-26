@@ -377,6 +377,25 @@ body.signed_in > header {
          }
       }
 
+      #messages_tip {
+         position: relative;
+         float: left;
+         margin: 15px 0 0 25px;
+
+         > a {
+            display: block;
+            width: 20px;
+            line-height: 20px;
+            background: #f66;
+            font-size: 10px;
+            text-align: center;
+            color: white;
+            @include border-radius(10px);
+         }
+
+         > a.no_messages {background: #ccc};
+      }
+
       #current_user {
          float: right;
          position: relative;

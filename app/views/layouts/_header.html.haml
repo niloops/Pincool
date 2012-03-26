@@ -8,6 +8,12 @@
       %li= link_to "我的品牌", user_path(current_user)
       %li= link_to "探索发现", explore_path
       %li= link_to "品控领域", categories_path
+    #messages_tip
+      - messages_count = current_user.messages.unreads.count
+      = link_to messages_count, 
+      messages_user_path(current_user),
+      title: "我有#{messages_count}个未读通知",
+      "class" => (messages_count > 0)?"":"no_messages"
     #current_user
       = link_to current_user do
         = image_tag current_user.image_url, class: "people_thumb_small", 

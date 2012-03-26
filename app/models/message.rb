@@ -6,6 +6,7 @@ class Message
   field :sender_ids, type: Array
   field :read, type: Boolean, default: false
   belongs_to :post
+  belongs_to :brand
   embedded_in :user, inverse_of: :messages
 
   validates_inclusion_of :type, in: [:comment]
@@ -20,7 +21,8 @@ class Message
     def build_comment(sender, post)
       new type: :comment,
       sender_ids: [sender.id],
-      post: post
+      post: post,
+      brand: post.brand
     end
 
     def read_comment(user, post)

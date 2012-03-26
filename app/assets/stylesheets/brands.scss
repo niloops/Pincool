@@ -124,7 +124,7 @@ body#brands {
 
       > a {
          position: absolute;
-         right: -80px;
+         top: -40px;
          z-index: 10;
          display: inline-block;
          margin: 0 1em;
@@ -136,14 +136,14 @@ body#brands {
       }
 
       .feeling_pub {
-         top: -100px;
+         right: 110px;
          @include background(image-url("feeling_pub.png") no-repeat 1em center, 
             #fff);
          @include background(image-url("feeling_pub.png") no-repeat 1em center,
                linear-gradient(#fff, #ddd));
       }
       .review_pub {
-         top: -40px;
+         right: -15px;
          @include background(image-url("review_pub.png") no-repeat 1em center, 
             #fff);
          @include background(image-url("review_pub.png") no-repeat 1em center,

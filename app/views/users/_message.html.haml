@@ -1,0 +1,5 @@
+%li
+  = link_to logo_tag(message.brand, :small), brand_path(message.brand)
+  %p.message{"data-url" => brand_post_path(message.brand, message.post)}
+    = render "message_#{message.type}", message: message
+    = time_ago_tag message.created_at

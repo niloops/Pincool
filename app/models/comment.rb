@@ -17,7 +17,9 @@ class Comment
   private
 
   def related
-    (post.comments.map {|comment| comment.author} << post.author).uniq
+    users = post.comments.map {|comment| comment.author} << post.author
+    users.delete author
+    users.uniq
   end
 
   def notify_related

@@ -3,15 +3,12 @@
   %p
     = link_to post.author.name, user_path(post.author)
     %span.author_review
-      - if post.respond_to? :evaluated 
-        = post.evaluated? ? "的产品评价" : "想要的"
-      - elsif post.type == "Feeling"
-        = "的感受"
+      = post_desc post
     %span.author_brand
       在
       = link_to(post.brand.title, brand_path(post.brand))
   - if post.updated_at
-    = time_tag post.updated_at, time_ago_in_words(post.updated_at)+"前"
+    = time_ago_tag post.updated_at
   - if post.comments.count > 0
     %a{href: brand_post_path(post.brand, post)}
       %span.comment_count{title: "已经有#{post.comments.count}个回复"}

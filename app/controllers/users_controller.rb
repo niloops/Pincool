@@ -39,4 +39,19 @@ class UsersController < ApplicationController
     @posts = @user.posts.by_type(params[:type]).page(params[:page])
     render 'shared/posts', layout: false
   end
+
+  def messages
+    @user = current_user
+  end
+
+  def messages_data
+    @messages = current_user.messages
+    @messages = @messages.unreads if params[:unread]
+    render layout: false
+  end
+
+  def messages_readall
+    Message.readall(current_user)
+    redirect_to messages_user_path(current_user)
+  end
 end

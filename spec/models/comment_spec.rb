@@ -35,6 +35,7 @@ describe Comment do
     its(:type) {should == :comment}
     its(:senders) {should be_include author}
     its(:post) {should == review}
+    its(:brand) {should == review.brand}
     its(:read) {should == false}
 
     describe "merge messages from same post" do
