@@ -7,17 +7,22 @@ Pincool.ajaTab = (content, links)->
     .bind 'ajax:success', (e, data, status, xhr) ->
       $(content).removeClass("loading_small")
         .html(data)
-  $(links).first().trigger('click')
+  $(links).filter(':first').trigger('click')
 
 Pincool.userShow = ->
   Pincool.ajaTab '#users .person_content',
                  '#users .person_head > nav > a'
 
 Pincool.userMessages = ->
-  Pincool.ajaTab '#users .messages_content',
-                 '#users .messages_head > nav > a'
+  links = '#users .messages_head > nav > a'
+  button = '#users .messages_head > form > button'
+  $(links).filter(':first').click ->
+    $(button).fadeIn()
+  $(links).filter(':last').click ->
+    $(button).fadeOut()
   $('.message').live 'click', ->
     window.location = $(this).attr('data-url')
+  Pincool.ajaTab '#users .messages_content', links
 
 Pincool.home = ->
   Pincool.Articles.init()

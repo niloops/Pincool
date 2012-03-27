@@ -41,6 +41,7 @@ body#users {
          float: right;
          width: 100px;
          @include blue-button-style;
+         display: none;
       }
    }
 
@@ -54,10 +55,10 @@ body#users {
                border-bottom: 1px dashed #ccc;
                line-height: 2em;
                padding: .5em;
-               background: #ffc;
+               background: #f4f4f4;
                color: $site-aux-text-color;
                cursor: pointer;
-
+               &:hover {background: #ffc};
                time {margin-left: .2em;}
             }
          }
