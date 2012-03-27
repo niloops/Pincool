@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
   def full_title(page_title)
-    "品酷" + (page_title.blank? ? "" : " | #{page_title}")
+    title = "品酷" + (page_title.blank? ? "" : " | #{page_title}")
+    if signed_in? && current_user.messages.unreads.count > 0
+      title = "(#{current_user.messages.unreads.count}) " + title
+    end
+    title
   end
 
   def upyun_file_field_tag(id, type)
