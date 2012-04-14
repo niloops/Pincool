@@ -12,9 +12,9 @@ set :deploy_via, :remote_cache
 set :deploy_to, "/var/pincool"
 set :use_sudo, false
 
-role :web, "pincool.me"                          
-role :app, "pincool.me"                          
-role :db,  "pincool.me", :primary => true 
+role :web, "evalp.com"                          
+role :app, "evalp.com"                          
+role :db,  "evalp.com", :primary => true 
 
 namespace :deploy do
   task :start do ; end
