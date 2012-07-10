@@ -4,7 +4,7 @@ gem 'rails', '3.2.2'
 gem 'rails-i18n', '0.5.2'
 # ReplSetConnection seed format is now array of 'host:port' strings
 # It will show warnings in production env, so locks mongo at 1.5.2
-gem 'mongo', '1.5.2'  
+gem 'mongo', '1.5.2'
 gem 'bson_ext', '1.5.2'
 gem 'mongoid', '2.4.6'
 gem 'haml-rails', '0.3.4'
