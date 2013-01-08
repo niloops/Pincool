@@ -3,7 +3,6 @@ class Category
   include Mongoid::Document
 
   field :name, type: String
-  index :name, unique: true
   belongs_to :founder, class_name: 'User'
   has_and_belongs_to_many :brands, validate: false
 

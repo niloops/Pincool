@@ -4,11 +4,8 @@ class Post
 
   field :title, type: String
   field :content, type: String
-  belongs_to :author, class_name: 'User',
-  index: true, inverse_of: :posts
-  belongs_to :brand,
-  index: true, inverse_of: :posts
-  index :created_at
+  belongs_to :author, class_name: 'User'
+  belongs_to :brand
   alias type _type
 
   embeds_many :photos
@@ -34,7 +31,7 @@ class Post
   end
 
   def editable_by?(edit_user)
-    edit_user.admin? || author == edit_user 
+    edit_user.admin? || author == edit_user
   end
 
   def title_required?

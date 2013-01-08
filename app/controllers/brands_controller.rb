@@ -1,7 +1,6 @@
 class BrandsController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create, :show, :posts_data]
+  before_filter :authenticate_user!, only: [:new, :create, :show, :posts_data]
   before_filter :author, only: [:edit, :update]
-  before_filter :admin_user, only: [:index]
 
   def new
     @brand = Brand.new

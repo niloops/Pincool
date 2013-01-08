@@ -1,6 +1,7 @@
 %header
   = image_tag "logo.png"
-  = render 'invited_user', invited_user: @invited_user
+  = link_to "signin", new_user_session_path
+  = link_to "signup", new_user_registration_path
 %aside
   准备中...
 %section

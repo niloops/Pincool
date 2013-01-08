@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :signed_in_user
-  
+  before_filter :authenticate_user!
+
   def create
     post = Post.find params[:post_id]
     @comment = Comment.new(author: current_user,

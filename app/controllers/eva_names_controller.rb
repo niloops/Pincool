@@ -1,7 +1,6 @@
 class EvaNamesController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :admin_user
-  
+  before_filter :authenticate_user!
+
   def new
     @eva_name = EvaName.new
   end

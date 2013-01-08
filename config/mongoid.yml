@@ -1,18 +1,27 @@
 development:
-  host: localhost
-  database: pincool_development
-  raise_not_found_error: false
+  sessions:
+    default:
+      database: pincool_development
+      hosts: 
+        - localhost:27017
+  options:
+    raise_not_found_error: false
 
 test:
-  host: localhost
-  database: pincool_test
-  raise_not_found_error: false
+  sessions:
+    default:
+      database: pincool_test
+      hosts: 
+        - localhost:27017
+  options:
+    raise_not_found_error: false
 
 production:
-  hosts: 
-    - - localhost
-      - 27017
-    - - localhost
-      - 27018
-  database: pincool_production
-  raise_not_found_error: false
+  sessions:
+    default:
+      database: pincool_production
+      hosts: 
+        - localhost:27017
+  options:
+    raise_not_found_error: false
+

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 class CategoriesController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :admin_user, except: [:show, :index]
-  
+  before_filter :authenticate_user!
+
   def new
     @category = Category.new
   end

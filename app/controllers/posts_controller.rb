@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :authenticate_user!
   before_filter :author, only: [:edit, :update, :destroy]
   before_filter :build_post, only: [:new, :create]
 

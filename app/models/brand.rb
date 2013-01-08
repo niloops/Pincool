@@ -8,16 +8,14 @@ class Brand
   field :description, type: String
   field :total_evas, type: Array, default: [0, 0, 0]
   field :eva_names, type: Array, default: %w{设计 性能 实惠}
-  index :uri, unique: true
-  index :created_at
 
-  belongs_to :founder, class_name: 'User', index: true, inverse_of: :found_brands
+  belongs_to :founder, class_name: 'User', inverse_of: :found_brands
   has_and_belongs_to_many :followers, class_name: 'User'
   has_many :posts, validate: false
   has_and_belongs_to_many :categories
 
   validates_presence_of :founder
-  validates_presence_of :title, message: "品牌名称不能为空" 
+  validates_presence_of :title, message: "品牌名称不能为空"
   validates_length_of :title, within: 1..20, too_long: "名称最多只能输入%{count}个字"
   validates_presence_of :uri, message: "域名不能为空"
   validates_format_of :uri, with: /^[0-9a-z-]+$/, message: "域名仅限小写字母、数字与“-”"
